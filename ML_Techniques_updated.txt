@@ -1,0 +1,1514 @@
+ How you can make data normal using Box-Cox transformation?
+Explain evaluation protocols for testing your models? Compare hold-out vs k-fold cross-validation vs iterated k-fold cross-validation methods of testing.
+ What do you understand by feature vectors?
+Do you need to do feature engineering and feature extraction when applying deep learning models?
+ 
+What kind of data is important for specific business requirements and how, as a data scientist will you go about collecting that data?
+Tell us about the biggest data set you have processed to date and for what kind of analysis.
+Which data scientists do you admire the most and why?
+Suppose you are given a data set, what will you do with it to find out if it suits the business needs of your project or not.
+What were the business outcomes or decisions for the projects you worked on?
+What unique skills do you think can you add to our data science team?
+Which are your favorite data science startups?
+
+What have you done to upgrade your skills in analytics?
+What has been the most useful business insight or development you have found?
+How will you explain an A/B test to an engineer who does not know statistics?
+When does parallelism helps your algorithms run faster and when does it make them run slower?
+How can you ensure that you don’t analyze something that ends up producing meaningless results?
+How would you explain to the senior management in your organization why a particular data set is important?
+Is more data always better?
+
+
+what is root cause analysis?
+Do gradient descent always converge to similar points?
+what is collaborative filtering and content-based?
+--------------------------------------------------------------------------------------------------------
+What will you do once the data is given to you for a specific machine learning usecase?
+
+Understand the Problem:
+
+Clarify the problem you're trying to solve. What is the goal of the machine learning task? Are you working on classification, regression, clustering, etc.?
+Understand the context and domain of the problem. This helps you make informed decisions during data preprocessing and modeling.
+
+Data Exploration:
+
+Load and inspect the dataset. Understand its structure, the types of variables (features), and the target variable.
+Check for missing values, anomalies, and outliers in the data.
+Visualize the data using plots and charts to gain insights into distributions and relationships.
+
+Data Preprocessing:
+
+Handle missing values: Decide whether to impute or remove them based on the context.
+Handle outliers: Decide whether to remove, transform, or leave them based on the impact on the problem.
+Encode categorical variables: Convert categorical features into numerical representations using techniques like one-hot encoding or label encoding.
+Normalize or scale numerical features if required.
+
+Feature Engineering:
+
+Create new features that might provide valuable information for the model.
+Perform transformations such as log, square root, or interaction terms.
+Use domain knowledge to engineer features that capture important aspects of the problem.
+
+Data Splitting:
+
+Divide the dataset into training, validation, and test sets. The typical split might be 70-80% for training, 10-15% for validation, and 10-15% for testing.
+For time series data, consider using techniques like time-based splitting or rolling windows.
+
+Model Selection and Training:
+
+Choose appropriate machine learning algorithms or models based on the problem type and characteristics of the data.
+Train initial models on the training set using default hyperparameters.
+Monitor the models' performance on the validation set using suitable metrics (accuracy, precision, recall, F1-score, etc.).
+
+Hyperparameter Tuning:
+
+Perform hyperparameter tuning using techniques like grid search, random search, or Bayesian optimization.
+Use techniques like cross-validation to assess the generalization performance of different hyperparameter settings.
+
+Interpretation and Analysis:
+
+Analyze the model's predictions to understand where it performs well and where it struggles.
+Use techniques like feature importance analysis and visualization to gain insights into how the model makes decisions.
+
+Deployment and Monitoring:
+
+If the model performs well, deploy it in a suitable environment for production use.
+Set up monitoring to track the model's performance over time and make updates if necessary.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+what is Bias and variance?
+
+Bias is the difference between the actual value and the expected value predicted by the model. A model with a high bias is said to be oversimplified as a result, underfitting the data.
+Variance, on the other hand, represents a model’s sensitivity to small fluctuations in the training data. A model with high variance is sensitive to noise and as a result, 
+overfitting the data.  In other words, the model fits well on training data but fails to generalise on unseen (testing) data.
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+what if your dataset is tall and wide?
+
+If your data is too tall, then a standard technique is batching, where you update the loss function for say, 1000 points at a time. This is how stochastic gradient descent works.
+
+If your data is also too wide, then I would think a similar kind of batching procedure would work, where you also select a subset of features to update at any given time. 
+This would be analogous to how dropout works in neural networks.
+
+----------------------------------------------------------------------------
+what is AI?
+AI is a subset of DS. it makes the machines work as Humans.
+Artificial Intelligence (AI) involves using computers to do things that traditionally require human intelligence
+--------------------------------------------------------
+what is datascience?
+Data science is the field of study that combines domain expertise, 
+programming skills, and knowledge of mathematics and statistics to extract meaningful insights from data.
+In turn, these systems generate insights which analysts and business users can translate into tangible business value.
+
+---------------------------------------------------------------------------
+what is machine learning?
+machine learning is an application of AI that provides the machines with the ability to learn without being explicitly programmed 
+It does so with the help of ML Algorithms. 
+Here the machines try to learn from there mistakes same as humans do.
+------------------------------------------------------------------------------------------------------------------------------------
+
+What is EDA to you?
+EDA which refers to Exploratory Data Analysis  which is a process to analyse the given dataset before creating a ML pipeline.
+
+checking for the properties of the data like whether they follow any distribution,how the data is splitted,features are correlated,how each feature is related to other and target feature,
+any outliers in the data,missing values,mean, median,mode,std or any patterns in the data etc..
+
+descriptive statistics
+check for distributions
+check for variance
+correlations
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+steps in Machine learning?
+Data collection
+EDA
+DATA preprocessing
+-Feature engineering & feature selection
+model building and training
+evaluating the model
+hyper parameter tuning
+model retraining
+model deployment.
+-----------------------------------------------------------------------------------
+6. There are many machine learning algorithms till now. If given a data set, how can one determine which algorithm to be used for that?
+
+We first check whether it is a supervised problem or unsupervised.
+For supervised ML tasks:
+Machine Learning algorithm to be used purely depends on the type of data in a given dataset. 
+If data is linear and we are dealing with a continous output then we try with Linear regression. 
+If the data is linear and its a classification problem we use SVM AND logistic regression.
+we use SVM when the number of features are extremely high compared to observations.
+If we are dealing with the text data and it is a classification problem we go with Naive Bayes,SVM.
+If data shows non-linearity and data is huge then, the bagging algorithm would do better. 
+If the data is to be analyzed/interpreted for some business purposes then we can use decision trees or SVM. 
+If the dataset consists of images, videos, audios then, neural networks would be helpful to get the solution accurately.
+
+So, there is no certain metric to decide which algorithm to be used for a given situation or a data set. 
+We need to explore the data using EDA (Exploratory Data Analysis) and understand the purpose of using the dataset to come up with 
+the best fit algorithm. So, it is important to study all the algorithms in detail.
+---------------------------------------------------------------------------------------------------
+What are the three stages for creating a model in machine learning?
+Answer:
+Model building
+Model test
+Applying the model
+
+which is more important model accuracy or model perfomance?
+The best accuracy is 100% indicating that all the predictions are correct.
+For an imbalanced dataset, accuracy is not a valid measure of model performance. 
+For a dataset where the default rate is 5%, even if all the records are predicted as 0, the model will still have an accuracy of 95%. 
+But this model will ignore all the defaults and can be very detrimental to the business. 
+So accuracy is not a right measure for model performance in this scenario.
+
+
+Is accuracy a good metrix to measure the perfomance of the classification model?
+Classification accuracy is a metric that summarizes the performance of a classification model 
+as the number of correct predictions divided by the total number of predictions.
+It is most used when all the classes are equally important.
+
+This works better when the datset classes are balanced.
+This intuition breaks down when the distribution of examples to classes is severely skewed.
+can be incorrect and dangerously misleading on imbalanced classification predictive modeling problems.
+
+accuracy doesn’t work well when there is much important given to false positive rate or false negative rate.
+suppose there is a dataset which needs to predict spam or no spam, suppose accuracy is 95% here the dataset is imbalanced.
+suppose here few mails might be given as spam even though they are not spam this is a situation where it is important to have less false positive rate.
+in this case we need to check precision and recall.
+
+Accuracy is used when the True Positives and True negatives are more important while F1-score is used when 
+the False Negatives and False Positives are crucial.
+
+In most real-life classification problems, imbalanced class distribution exists and thus F1-score is a better metric to evaluate our model on.
+
+
+
+https://medium.com/analytics-vidhya/accuracy-vs-f1-score-6258237beca2
+--------------------------------------------------------------------------------------------------
+difference between cost and loss function?
+
+If you are calculating the loss with respect to one datapoint then it is known as loss function.
+If you are calculating the loss with respect to multiple datapoints or batches then it is known as cost function.
+
+-----------------------------------------------------------------------------------------------------------------
+what is instance based learning?
+The Machine Learning systems which are categorized as instance-based learning are the systems that learn the training examples by heart and 
+then generalizes to new instances based on some similarity measure. It is called instance-based because it builds the hypotheses from 
+the training instances. It is also known as memory-based learning or lazy-learning.
+----------------------------------------------------------------------------------------------------------------------------
+what is out of core learning?
+Out-of-core learning refers to a set of algorithms working with data that cannot fit into the memory of a single computer, 
+but that can easily fit into some data storage such as a local hard disk or web repository.
+
+--------------------------------------------------------------------------------------------------------------------------
+Q50) Can you give some wise advice for selecting algorithms?
+Answer: Selecting the algorithms required as per our problem is always tricky. But it is always
+good to start a regression problem with linear regression and logistic regression for classification tasks.
+
+------------------------------------------------------------------------------------------------------
+Q51) What is class imbalance?
+
+https://www.kaggle.com/code/marcinrutecki/best-techniques-and-metrics-for-imbalanced-dataset
+https://medium.com/dataman-in-ai/sampling-techniques-for-extremely-imbalanced-data-part-i-under-sampling-a8dbc3d8d6d8
+https://imbalanced-learn.org/stable/over_sampling.html
+Answer: 
+The class imbalance problem typically occurs when there are many more instances of some classes than others within a classification dataset.
+Classes that make up a large proportion of the data set are called majority classes. Those that make up a smaller proportion are minority classes.
+Class imbalance is something which most of all the classification problem falls on. It is
+always good to check the number of observations for each target variable. To be precise, it is
+something like we get 990 cancer free patients and 10 cancer patients in the data set. While
+machine will learn a lot about 990 cancer patients and much importance is given to 10 datapoints.
+
+Imbalanced data prevail in banking, insurance, engineering, and many other fields. It is common in fraud detection that the imbalance is on the order of 100 to 1.
+
+How do you handle class imbalance?
+ 
+Two approaches to make a balanced dataset out of an imbalanced one are under-sampling and over-sampling.
+
+1.1. Under-sampling
+
+Under-sampling balances the dataset by reducing the size of the abundant class. 
+This method is used when quantity of data is sufficient. By keeping all samples in the rare class and randomly selecting an equal number of samples 
+in the abundant class, a balanced new dataset can be retrieved for further modelling.
+
+
+(1) Random under-sampling for the majority class.
+The simplest undersampling technique involves randomly selecting examples from the majority class and deleting them from the training dataset. 
+This is referred to as random undersampling. Although simple and effective, a limitation of this technique is that examples are removed without any concern 
+for how useful or important they might be in determining the decision boundary between the classes. 
+This means it is possible, or even likely, that useful information will be deleted.
+
+(2) NearMiss:
+To attack the issue of potential information loss, the “near neighbor” method and its variations have been proposed. 
+The basic algorithms of the near neighbor family are this: first, the method calculates the distances between all instances of the majority class and the instances of the minority class. 
+Then k instances of the majority class that have the smallest distances to those in the minority class are selected. 
+If there are n instances in the minority class, the “nearest” method will result in k*n instances of the majority class.
+
+“NearMiss-1” selects samples of the majority class their average distances to the three closest instances of the minority class are the smallest. 
+NearMiss-2” uses three farthest samples of the minority class. “NearMiss-3” selects a given number of the closest samples of the majority class for each sample of the minority class.
+
+(3) Condensed Nearest Neighbor Rule (CNN):
+Hart (1968) introduced the Condensed Nearest Neighbor Rule (CNN). Hart starts with two blank datasets A and B. Initially the first sample is placed in dataset A, 
+while the rest samples are placed in dataset B. Then one instance from dataset B is scanned by using dataset A as the training set. 
+If a point in B is misclassified, it is transferred from B to A. This process repeats until no points are transferred from B to A.
+
+(4) TomekLinks:
+In the same manner, Tomek (1976) proposed an effective method that considers samples near the borderline. 
+Given two instances a and b belonging to different classes and are separated by a distance d(a,b), the pair (a, b) is called a Tomek link 
+if there is no instance c such that d(a,c) < d(a,b) or d(b,c) < d(a,b). 
+Instances participating in Tomek links are either borderline or noise so both are removed.
+
+
+(5) Edited Nearest Neighbor Rule (ENN):
+ Wilson (1972) introduced the Edited Nearest Neighbor Rule (ENN) to remove any instance whose class label is different from the class of at least two of its three nearest neighbors. 
+The idea behind this technique is to remove the instances from the majority class that is near or around the borderline of different classes based on the concept of nearest neighbor (NN) 
+to increase the classification accuracy of minority instances rather than majority instances.
+
+(6) NeighbourhoodCleaningRule:
+The neighborhood Cleaning Rule (NCL) deals with the majority and minority samples separately when sampling the data sets. NCL uses ENN to remove the majority of examples. 
+for each instance in the training set, it finds three nearest neighbors. If the instance belongs to the majority class and the classification given by its three nearest neighbors 
+ is the opposite of the class of the chosen instance, then the chosen instance is removed. 
+If the chosen instance belongs to the minority class and is misclassified by its three nearest neighbors, then the nearest neighbors that belong to the majority class are removed.
+
+(7) ClusterCentroids. 
+This method undersamples the majority class by replacing a cluster of majority samples This method finds the clusters of the majority class with K-mean algorithms. 
+Then it keeps the cluster centroids of the N clusters as the new majority samples.
+
+https://medium.com/dataman-in-ai/sampling-techniques-for-extremely-imbalanced-data-part-i-under-sampling-a8dbc3d8d6d8
+
+1.2. Over-sampling
+
+On the contrary, oversampling is used when the quantity of data is insufficient. 
+It tries to balance dataset by increasing the size of rare samples. Rather than getting rid of abundant samples, 
+new rare samples are generated by using e.g. repetition, bootstrapping or SMOTE (Synthetic Minority Over-Sampling Technique) [1].
+
+examples: random over sampling,SMOTE
+
+https://www.kdnuggets.com/2017/06/7-techniques-handle-imbalanced-data.html
+
+SMOTE:
+
+SMOTE works by selecting examples that are close in the feature space, 
+drawing a line between the examples in the feature space and drawing a new sample at a point along that line.
+
+2. Ensemble Different Resampled Datasets
+ 
+
+The easiest way to successfully generalize a model is by using more data. 
+The problem is that out-of-the-box classifiers like logistic regression or random forest tend to generalize by discarding the rare class. 
+One easy best practice is building n models that use all the samples of the rare class and n-differing samples of the abundant class. 
+Given that you want to ensemble 10 models, you would keep e.g. the 1.000 cases of the rare class and randomly sample 10.000 cases of the abundant class. 
+Then you just split the 10.000 cases in 10 chunks and train 10 different models.
+
+This approach is simple and perfectly horizontally scalable if you have a lot of data, since you can just train and run your models on different cluster nodes. 
+Ensemble models also tend to generalize better, which makes this approach easy to handle.
+
+
+3.Resample with Different Ratios
+ 
+The previous approach can be fine-tuned by playing with the ratio between the rare and the abundant class. 
+The best ratio  heavily depends on the data and the models that are used. But instead of training all models with the same ratio in the ensemble, 
+it is worth trying to ensemble different ratios.  So if 10 models are trained, it might make sense to have a model that has a ratio of 1:1 (rare:abundant) and another one with 1:3, 
+or even 2:1. 
+Depending on the model used this can influence the weight that one class gets.
+
+4.Cluster the abundant class
+ 
+An elegant approach was proposed by Sergey on Quora [2]. 
+Instead of relying on random samples to cover the variety of the training samples, he suggests clustering the abundant class in r groups, with r being the number of cases in r. 
+For each group, only the medoid (centre of cluster) is kept. 
+The model is then trained with the rare class and the medoids only.
+
+5.Design Your Models
+ 
+All the previous methods focus on the data and keep the models as a fixed component. But in fact, there is no need to resample the data if the model is suited for imbalanced data. 
+The famous XGBoost is already a good starting point if the classes are not skewed too much, because it internally takes care that the bags it trains on are not imbalanced. 
+But then again, the data is resampled, it is just happening secretly.
+
+By designing a cost function that is penalizing wrong classification of the rare class more than wrong classifications of the abundant class, 
+it is possible to design many models that naturally generalize in favour of the rare class. For example, tweaking an SVM to penalize wrong classifications 
+of the rare class by the same ratio that this class is underrepresented.
+
+6.Cross validation:
+Stratification is used when the datasets contain unbalanced classes. 
+Therefore if we cross-validate with a normal technique it may produce subsamples that have a varying distribution of classes. 
+Some unbalanced samples may produce exceptionally high scores leading to a high cross-validation score overall, which is undesirable. 
+Therefore we create stratified subsamples that preserve the class frequencies in the individual folds to ensure that we are able to get a clear picture of the model performance.
+
+6.Use the right Metrics based on your purpose:
+
+Are you predicting probabilities?
+
+	Do you need class labels?
+		Is the positive class more important?
+		Use Precision-Recall AUC
+
+		Are both classes important?
+		Use ROC AUC
+
+		Do you need probabilities?
+		Use Brier Score and Brier Skill Score
+
+Are you predicting class labels?
+
+Is the positive class more important?
+Are False Negatives and False Positives Equally Important?
+Use F1-Measure
+Are False Negatives More Important?
+Use F2-Measure
+Are False Positives More Important?
+Use F0.5-Measure
+Are both classes important?
+Do you have < 80%-90% Examples for the Majority Class?
+Use Accuracy
+Do you have > 80%-90% Examples for the Majority Class?
+Use G-Mean
+-----------------------------------------------------------------------------------------------------------------------------
+
+Sensitivity refers to the true positive rate and summarizes how well the positive class was predicted.
+
+Sensitivity = TruePositive / (TruePositive + FalseNegative)
+Specificity is the complement to sensitivity, or the true negative rate, and summarises how well the negative class was predicted.
+
+Specificity = TrueNegative / (FalsePositive + TrueNegative)
+For imbalanced classification, the sensitivity might be more interesting than the specificity.
+
+Sensitivity and Specificity can be combined into a single score that balances both concerns, called the geometric mean or G-Mean.
+
+G-Mean = sqrt(Sensitivity * Specificity)
+------------------------------------------------------------------------------------------------
+What is SMOTE?
+
+SMOTE stands for Synthetic Minority Oversampling Technique. 
+This is a statistical technique for increasing the number of cases in your dataset in a balanced way.
+SMOTE takes the entire dataset as an input, but it increases the percentage of only the minority cases.
+It is similar to that of Data Augmentation Techinque in deep learning.
+
+
+SMOTE works by selecting examples that are close in the feature space, 
+drawing a line between the examples in the feature space and drawing a new sample at a point along that line.
+SMOTE takes the help of KNN
+
+steps in SMOTE:
+1.It will take the points from the minoirty class, initially we need to mention the KNN may be 3 or  and the ratio.
+ratio determines what percentage of values you want to generate w.r.to majority class ratio=1 means 100% i.e equal to that of majority class.
+2. suppose there are 100 minority points what SMOTE does is it will draw the lines between nearest neighbours of each data point.
+3. Then after drawing these lines SMOTE will randomly generate the points on these lines.
+
+
+Backdrop:
+it will try to create the minority samples without consulting the majority class because of which 
+overlapping might occur with that of majority class.
+
+
+
+---------------------------------------------------------------------------------------------------------------
+what are missing values in a dataset?
+missing values are the data points that are missing or having no value in a dataset.
+As such, it is good practice to identify and replace missing values for each column in your input data prior to modeling your prediction task. 
+This is called missing data imputation, or imputing for short.
+
+ Is missing data is just blanks?
+Answer: No. Not only the blanks, data points which has NA, NULL and also sometimes the corrupted data that has been recorded by mistake or given improper data by purpose.
+
+Types of missing values:
+missing values at random.
+missing values which are not random.
+
+Handling the missing values?
+There are various techniques to impute the missing values but it actually varies how to impute and what to impute for each use case.
+we need to perform EDA to know how the data is, what features  are playing a major role, which two features are related to each other.
+whether the data is missing at random or whether it is missing becuase the user might wantedly didn't mention the information or may be 
+it is related to the other feature.
+
+Handling  missing values in Categorical data.
+
+1.Remove the missing values.
+we can remove the missing values but we can only remove them when the dataset is large and the no of missing values is also very less in number.
+If we remove missing values that is in high number then we may loose some of the information present in other columns.
+
+2.Replace the missing values with most frequent value.
+Assumption:
+Data is missing at random; missing values look like majority
+we can use this method to impute the missing values when a particular catogory has high percentage but it might lead to imbalance.
+
+3. Use a classifier
+
+we can use the not missing values as the training data and missing data as the test data.
+
+4. Unsupervised technique like clustering.
+
+we can take all the features except target and the feature with missing values and try to perform clustering on it.
+
+5. we can also try to perform EDA and try to find the relation of the feature with other features and try to impute using there relation.
+
+6.when there is no pattern which we can see then adding a new feature might help but this is mostly trial and check process.
+
+
+Handling Missing values for Numerical data.
+
+1.delete when less in number and dataset is huge.
+2.Replace with mean or median based on distribution.
+3.Use random sampling technique if there is no specific pattern that can be known and create another column where we mention imputed or original.
+Data is normally distributed
+4.Using Interpolation
+5.using Regression algorithms.
+
+https://towardsdatascience.com/8-clutch-ways-to-impute-missing-data-690481c6cb2b
+
+There are many options to pick from when replacing a missing value:
+•A single pre-decided constant value, such as 0.
+•Taking value from another randomly selected sample.
+•Mean, median, or mode for the column.
+•Interpolate value using a predictive model.
+
+We usually delete the missing value column when the percentage in a certain feature is above a certain range.
+
+1. To impute null values in categorical variables which has lower null percentage, mode() is used to impute the most frequent items.
+2. To impute null values in categorical variables which has higher null percentage, a new category is created.
+3. To impute null values in numerical variables which has lower null percentage, median() when the data is skewed.
+4. we can impute values using mean when the data is normally distributed and there are no outliers in the data.
+5. we can impute the missing values based on cased study with the help of other features or with the combination of other features.
+6. suppose if the data missing is a continous value we can also impute them with the help of regression models.
+7. we can also use the classification task to impute the catogorical missing values like using knn.
+8. Based on the data we can also use forward fill and backward fill to impute the missing values it only depends on the dataset.
+9. In some cases we impute the missing values and assign a new category like whether it is imputed or a default value.
+10. Assigning An Unique Category
+
+--------------------------------------------------------------------------------------------------------------------------------
+How to Decide Which Imputation Technique to Use?
+One of the key point is to decide which technique out of above mentioned imputation techniques to use to get the most effective value for 
+the missing values. 
+In this post, the central tendency measure such as mean, median or mode is considered for imputation. 
+The goal is to find out which is a better measure of central tendency of data and use that value for replacing missing values appropriately.
+
+Plots such as box plots and distribution plots comes very handy in deciding which techniques to use. 
+
+You may note that the data is skewed. 
+There are several or large number of data points which act as outliers. 
+Outliers data points will have significant impact on the mean and hence, in such cases, it is not recommended to use mean for replacing the missing values.
+Using mean value for replacing missing values may not create a great model and hence gets ruled out. 
+For symmetric data distribution, one can use mean value for imputing missing values.
+we can use mean when most of the data points are close to the mean.
+
+
+Yet another technique is mode imputation in which the missing values are replaced with the mode value or most frequent value of the entire feature column. 
+When the data is skewed, it is good to consider using mode value for replacing the missing values. 
+For data points such as salary field, you may consider using mode for replacing the values. 
+Note that imputing missing data with mode value can be done with numerical and categorical data.
+
+
+You can use central tendency measures such as mean, median or mode of the numeric feature column to replace or impute missing values.
+You can use mean value to replace the missing values in case the data distribution is symmetric.
+Consider using median or mode with skewed data distribution.
+
+
+When the data is skewed, it is good to consider using median value for replacing the missing values. 
+Note that imputing missing data with median value can only be done with numerical data.
+
+When to use mean/median imputation?
+· Data is missing completely at random.
+· No more than 5% of the variable contains missing data.
+-----------------------------------------------------------------------------
+how to handle the categorical missing data?
+
+
+1.Frequent Categorical Imputation
+Assumptions: Data is Missing At Random (MAR) and missing values look like the majority.
+Description: Replacing NAN values with the most frequent occurred category in variable/column.
+Implementation:
+Step 1: Find which category occurred most in each category using mode().
+Step 2: Replace all NAN values in that column with that category.
+Step 3: Drop original columns and keep newly imputed columns.
+
+
+2.Adding a Variable To Capture NAN
+Assumptions: No assumption, can be work with all type categorical columns.
+Description: Replace NAN categories with most occurred values, 
+and add a new feature to introduce some weight/importance to non-imputed and imputed observations.
+ 
+
+3. Create a New Category (Random Category) for NAN Values
+Assumptions: No assumption
+Description: Create a new category for NAN values i.e random category.
+
+https://medium.com/analytics-vidhya/ways-to-handle-categorical-column-missing-data-its-implementations-15dc4a56893
+
+https://analyticsindiamag.com/5-ways-handle-missing-values-machine-learning-datasets/
+
+----------------------------------------------------------------------------------------------------------------------------------
+ 
+what are box plots?
+A boxplot is a standardized way of displaying the distribution of data based on a five number summary 
+(“minimum”, first quartile (Q1), median, third quartile (Q3), and “maximum”). 
+It can tell you about your outliers and what their values are. 
+It can also tell you if your data is symmetrical, how tightly your data is grouped, and if and how your data is skewed.
+The line inside the box indicates the median, which is the middle value when the data is sorted.
+
+The box represents the interquartile range (IQR), which is the range between the first quartile (Q1) and the third quartile (Q3) of the data. 
+It encompasses the central 50% of the data.
+
+Whiskers:
+
+The whiskers extend from the box to the minimum and maximum values within a certain range. The range is often defined as 1.5 times the interquartile range.
+Outliers beyond the whiskers are typically plotted individually as points.
+
+median (Q2/50th Percentile): the middle value of the dataset.
+median tells us that 50% of the values are less than median.
+if data is ranging from 1 to 100 
+and median is at 40 it means 50% of the values are less than 40.
+
+first quartile (Q1/25th Percentile): 
+the middle number between the smallest number (not the “minimum”) and the median of the dataset.
+formula to find the 25th percentile: 
+
+(25/100)*(number of samples+1)
+
+third quartile (Q3/75th Percentile): 
+the middle value between the median and the highest value (not the “maximum”) of the dataset.
+
+interquartile range (IQR): 
+IQR=(Q3-Q1)
+whiskers (shown in blue)
+outliers (shown as green circles)
+“maximum fence”: Q3 + 1.5*IQR
+“minimum fence”: Q1 -1.5*IQR
+-----------------------------------------------------------------------------------------------------------------------------------
+what are outliers?
+An outlier is an observation that is unlike the other observations. It is rare, or distinct, or does not fit in some way.
+An outlier is an object that deviates significantly from the rest of the objects.
+
+Why outlier analysis?
+Most data mining methods discard outliers noise or exceptions, however, in some applications such as fraud detection, 
+the rare events can be more interesting than the more regularly occurring one and 
+hence, the outlier analysis becomes important in such case.
+
+what is the impact of outliers in machine learning?
+Many machine learning algorithms are sensitive to the range and distribution of attribute values in the input data. 
+Data outliers can spoil and mislead the training process resulting in longer training times, less accurate models and ultimately poorer results.
+
+should we remove outliers?
+removing outliers usually depend on the dataset sometimes there might be outliers but they may be playing a crucial role.
+Outliers badly affect mean and standard deviation of the dataset. These may statistically give erroneous results.
+ Most machine learning algorithms do not work well in the presence of outlier. So it is desirable to detect and remove outliers.
+ 
+
+what are the techniques to detect outliers?
+BOX PLOTS
+SCATTER Plots
+DISCOVER USING Z-SCORE
+IQR score 
+
+https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba
+
+
+
+what are the techniques to remove outliers?
+
+1.BOX plots(removing values using IQR) used for detecting numeric outliers
+This is the simplest, nonparametric outlier detection method in a one dimensional feature space.
+QR =Q3 - Q1, whereas q3 := 75th quartile and q1 := 25th quartile
+ 
+
+2.z-score:
+Z-score is a parametric outlier detection method in a one or low dimensional feature space.
+This technique assumes a Gaussian distribution of the data. 
+The outliers are the data points that are in the tails of the distribution and therefore far from the mean.
+
+
+3.DBSCAN
+
+This technique is based on the DBSCAN clustering method. DBSCAN is a non-parametric, 
+density based outlier detection method in a one or multi dimensional feature space.
+
+In the DBSCAN clustering technique, all data points are defined either as Core Points, Border Points or Noise Points.
+
+Core Points are data points that have at least MinPts neighboring data points within a distance ℇ.
+Border Points are neighbors of a Core Point within the distance ℇ but with less than MinPts neighbors within the distance ℇ.
+All other data points are Noise Points, also identified as outliers.
+
+4. Isolation Forest:
+
+The meaning of isolation is to differentiate each observation from every other data point or in other words each isolation consists of one datapoint.
+
+In general the anomalies are easy to detect than to differentiate between two normal observations.
+
+The anomalies take less steps to be differentiated than the normal ones.
+
+like an anomaly can be found in 3 steps and we may take 12 steps to differntiate a normal datapoint from others.
+
+example:
+suppose there are 3 phones apple12,apple13,landline.
+in the above 3 landline is the outlier but if you want to differentiate  apple 12 ,apple 13 it takes various steps since they have lot in common.
+
+Isolation forest is one of the efficient ways to detect outliers,it works well on the high dimensional dataset.
+
+It works well because it doesn't care what type of data you are feeding to it like numerical or categorical, high dimensional or low dimensional.
+
+The model builds a random forest in which each each decision tree is built randomly.
+
+At each node it picks a feature randomly and a random threshold value to split the dataset into two.
+
+As the dataset gradually gets chopped off, each observation gets isolation from others.
+
+Anomalies are far from the other so they get to be isolated in less steps than the other observations.
+
+
+Each observation is given an anomaly score and the following decision can be made on its basis:
+A score close to 1 indicates anomalies
+Score much smaller than 0.5 indicates normal observations
+If all scores are close to 0.5 then the entire sample does not seem to have clearly distinct anomalies
+
+https://towardsdatascience.com/outlier-detection-with-isolation-forest-3d190448d45e
+https://www.kdnuggets.com/2018/12/four-techniques-outlier-detection.html
+-----------------------------------------------------------------------------------------------------------------------------
+what are anomalies?
+anomalies are the odd ones in a given dataset.
+
+Below is a brief overview of popular machine learning-based techniques for anomaly detection. 
+
+Density-Based Anomaly Detection 
+
+Density-based anomaly detection is based on the k-nearest neighbors algorithm.
+
+Assumption: Normal data points occur around a dense neighborhood and abnormalities are far away. 
+
+
+Clustering-Based Anomaly Detection 
+
+Clustering is one of the most popular concepts in the domain of unsupervised learning.
+
+Assumption: Data points that are similar tend to belong to similar groups or clusters, as determined by their distance from local centroids.
+
+
+Support Vector Machine-Based Anomaly Detection 
+
+A support vector machine is another effective technique for detecting anomalies. A SVM is typically associated with supervised learning, 
+but there are extensions (OneClassCVM, for instance) that can be used to identify anomalies as an unsupervised problems 
+(in which training data are not labeled). 
+The algorithm learns a soft boundary in order to cluster the normal data instances using the training set, and then, 
+using the testing instance, it tunes itself to identify the abnormalities that fall outside the learned region.
+---------------------------------------------------------------------------------------------------------------------
+One Class SVM:
+
+Objective: 
+The primary goal of a One-Class SVM is to detect anomalies or outliers in a dataset. 
+It is designed for situations where you have predominantly one class (the "normal" class) and very few examples of the other class (the "anomalous" or "outlier" class).
+
+Training Data: 
+In OC-SVM, you typically have only the normal data for training. 
+The algorithm learns to create a decision boundary that encapsulates the normal data points while maximizing the margin between the boundary and the data points.
+
+Margin Maximization: 
+OC-SVM seeks to find the smallest hypersphere (for radial basis function kernel) or hyperplane (for linear kernel) that contains the majority of the normal data. 
+The margin represents a region where data is considered "normal."
+
+Classification: 
+Once trained, OC-SVM can be used to predict whether new, unseen data points are anomalies or not. 
+If a data point falls outside the margin defined by the model, it is classified as an anomaly; otherwise, it is considered normal.
+
+Output: 
+OC-SVM outputs anomaly scores or labels. Data points outside the margin are typically assigned a label of -1 (outliers), while data points inside the margin are assigned a label 
+of +1 (inliers).
+
+----------------------------------
+How can outlier values be treated?
+You can drop outliers only if it is a garbage value. 
+
+Example: height of an adult = abc ft. This cannot be true, as the height cannot be a string value. In this case, outliers can be removed.
+
+If the outliers have extreme values, they can be removed. 
+For example, if all the data points are clustered between zero to 10, but one point lies at 100, then we can remove this point.
+
+If you cannot drop outliers, you can try the following:
+
+Try a different model. Data detected as outliers by linear models can be fit by nonlinear models. 
+Therefore, be sure you are choosing the correct model.
+Try normalizing the data. This way, the extreme data points are pulled to a similar range.
+You can use algorithms that are less affected by outliers; an example would be random forests. 
+------------------------------------------------------------------------------------------------------------------------
+
+Quick ways to handling Outliers.
+Outliers can either be a mistake or just variance. (As mentioned, examples)
+If we found this is due to a mistake, then we can ignore them.
+If we found this is due to variance, in the data, we can work on this.
+-----------------------------------------------------------------------------------------------------------------------------
+Bias variance Trade OFF?
+
+ It is important to understand the variance and bias trade-off which tells about to minimize the Bias and Variance in the prediction 
+ and avoids overfitting & under fitting of the model.
+Bias: It is the difference between the expected or average prediction of the model and the correct value which we are trying to predict. 
+Imagine if we are trying to build more than one model by collecting different data sets, 
+
+and later on, evaluating the prediction, we may end up by different prediction for all the models. 
+So, bias is something which measures how far these model prediction from the correct prediction. 
+It always leads to a high error in training and test data.
+Variance: Variability of a model prediction for a given data point. 
+We can build the model multiple times, so the variance is how much the predictions for a given point vary between different realizations of the model.
+---------------------------------------------------------------------------------------------
+Bias scenario's: using a phonebook to select participants in our survey is one of our sources of bias. By only surveying certain classes of people, 
+it skews the results in a way that will be consistent if we repeated the entire model building exercise.
+
+Variance scenarios: the small sample size is a source of variance. 
+If we increased our sample size, the results would be more consistent each time we repeated the survey and prediction. 
+The results still might be highly inaccurate due to our large sources of bias, but the variance of predictions will be reduced.
+
+--------------------------------------------------------------------------------------------------------------------------
+What is multicollinearity, and how do you treat it?
+Multicollinearity means independent variables are highly correlated to each other. 
+Multicollinearity exists when there is a correlation between multiple independent variables in a multiple regression model. 
+multicollinearity does'nt reduce a model's overall predictive power but is important for those  who wish to build models to gain more insight into the nature of the predictive features.
+
+In regression analysis, it's an important assumption that the regression model should not be faced with a problem of multicollinearity.
+If two explanatory variables are highly correlated, it's hard to tell, which affects the dependent variable.
+Let's say Y is regressed against X1 and X2 and where X1 and X2 are highly correlated. 
+Then the effect of X1 on Y is hard to distinguish from the effect of X2 on Y because any increase in X1 tends to be associated with an increase in X2.
+Another way to look at the multicollinearity problem is: Individual t-test P values can be misleading. 
+It means a P-value can be high, which means the variable is not important, even though the variable is important.
+
+Multicollinearity creates a problem in the multiple regression model because the inputs are all influencing each other. Therefore, they are not actually independent,
+ and it is difficult to test how much the combination of the independent variables affects the dependent variable, or outcome, within the regression model.
+
+While , it can produce estimates of the regression coefficients that are not statistically significant. 
+In a sense, it can be thought of as a kind of double-counting in the model.
+
+Correcting Multicollinearity:
+1) Remove one of the highly correlated independent variables from the model. If you have two or more factors with a high VIF, remove one from the model.
+2) Principle Component Analysis (PCA) - It cut the number of interdependent variables to a smaller set of uncorrelated components. 
+Instead of using highly correlated variables, use components in the model that have eigenvalue greater than 1.
+3) Run PROC VARCLUS and choose the variable that has a minimum (1-R2) ratio within a cluster.
+4) Ridge Regression - It is a technique for analyzing multiple regression data that suffer from multicollinearity.
+5) If you include an interaction term (the product of two independent variables), you can also reduce multicollinearity by "centering" the variables. 
+By "centering," 
+it means subtracting the mean from the values of the independent variable before creating the products.
+
+Understanding VIF
+If the variance inflation factor of a predictor variable is 5 this means that variance for the coefficient of that predictor variable is 
+5 times as large as it would be if that predictor variable were uncorrelated with the other predictor variables.
+In other words, if the variance inflation factor of a predictor variable is 5 this means that 
+the standard error for the coefficient of that predictor variable is 2.23 times (√5 = 2.23)
+ as large as it would be if that predictor variable were uncorrelated with the other predictor variables.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+VIF(Variance Inflation Factor):
+A variance inflation factor is a tool to help identify the degree of multicollinearity.
+It’s called the variance inflation factor because it estimates how much the variance of a coefficient is “inflated” because of linear dependence with other predictors.
+a VIF of 1.8 tells us that the variance (the square of the standard error) of a particular coefficient is 80% larger than it would be if that predictor was completely uncorrelated with all the other predictors.
+there are tests that can be run for multicollinearity. The variance inflation factor is one such measuring tool.  
+Multicollinearity is when there’s correlation between predictors (i.e. independent variables) in a model; it’s presence can adversely affect your regression results. 
+The VIF estimates how much the variance of a regression coefficient is inflated due to multicollinearity in the model.
+Variance inflation factors allow a quick measure of how much a variable is contributing to the standard error in the regression. 
+When significant multicollinearity issues exist, the variance inflation factor will be very large for the variables involved. 
+After these variables are identified, several approaches can be used to eliminate or combine collinear variables, resolving the multicollinearity issue.
+
+VIF=1/(1-R**2)
+
+steps:
+all the independent features are only considered
+Then one independtent variable is taken as target and others are considered as input features.
+lets say 1,2,3,4,5
+in step:1 1 is considered as target then we perform regression on them and calculate the R**2.
+similarly in the next step we take 2 as target and others as input features and perform regression and calculate R**2.
+we follow the same for all the independent features and calculate VIF for all the features.
+
+What Can VIF Tell You?
+When Ri2 is equal to 0, and therefore, when VIF or tolerance is equal to 1, the ith independent variable is not correlated to the remaining ones, meaning that multicollinearity does not exist.
+1
+
+In general terms,
+
+VIF equal to 1 = variables are not correlated
+VIF between 1 and 5 = variables are moderately correlated 
+VIF greater than 5 = variables are highly correlated
+2
+The higher the VIF, the higher the possibility that multicollinearity exists, and further research is required. When VIF is higher than 10, there is significant multicollinearity that needs to be corrected.
+
+What Is a Good VIF Value?
+As a rule of thumb, a VIF of three or below is not a cause for concern. As VIF increases, the less reliable your regression results are going to be.
+
+What Does a VIF of 1 Mean?
+A VIF equal to one means variables are not correlated and multicollinearity does not exist in the regression model.
+
+What Is VIF Used for?
+VIF measures the strength of the correlation between the independent variables in regression analysis. 
+This correlation is known as multicollinearity, which can cause problems for regression models.
+
+when is VIF not a problem?
+1.The variables with high VIFs are control variables, and the variables of interest do not have high VIFs. 
+if the variables that are not correlated with the target variable are having multicollineary we can ignore them.
+2.The variables with high VIFs are indicator (dummy) variables that represent a categorical variable with three or more categories. 
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+what is ROC- AUC curve?
+ROC- AUC curve is one of the performance measurement of a classification problem.  
+When we need to check or visualize the performance of the multi-class classification problem, we use the AUC (Area Under The Curve) 
+ROC (Receiver Operating Characteristics) curve. 
+It is one of the most important evaluation metrics for checking any classification model’s performance. 
+It is also written as AUROC (Area Under the Receiver Operating Characteristics).
+
+ROC is a probability curve and AUC represents the degree or measure of separability. 
+It tells how much the model is capable of distinguishing between classes. 
+Higher the AUC, the better the model is at predicting 0s as 0s and 1s as 1s.
+
+The ROC curve is plotted with TPR(recall or sensitivity) against the FPR(specificity) where TPR is on the y-axis and FPR is on the x-axis.
+
+steps for visualizing ROC-AUC curve:
+
+1. After performing prediction on the test data we need to evaluate it, to evaluate we need to consider some threshold because o/p is prob value.
+2.we will consider various thresholds between 0 and 1 lets say [0,0.2,0.4,0.6,0.8].
+3. for each threshold we will calculate the TPR AND FPR and we will get different values for each threshold.
+4. Then we plot all the TPR AND FPR w.r.to each threshold.
+5. Now we need to finalise the threshold value it usually depends on the business case.
+6. suppose if the business people say that we only need to consider TPR and it shouldn't have FPR then we will consider the threshold where FPR is very low.
+7. THe curve should be as high as possible.
+8. The ROC must be higher than 0.5.
+9. The area under ROC is known as AUC.
+-------------------------------------------------------------------------------------------------------------------
+How to speculate about the performance of the model?
+An excellent model has AUC near to the 1 which means it has a good measure of separability. 
+
+A poor model has AUC near to the 0 which means it has the worst measure of separability. 
+In fact, it means it is reciprocating the result. It is predicting 0s as 1s and 1s as 0s. 
+And when AUC is 0.5, it means the model has no class separation capacity whatsoever.
+----------------------------------------------------------------------------------------------------------------
+How to use the AUC ROC curve for the multi-class model?
+In a multi-class model, we can plot N number of AUC ROC Curves for N number classes using the One vs ALL methodology. 
+So for example, If you have three classes named X, Y, and Z, you will have one ROC for X classified against Y and Z,
+ another ROC for Y classified against X and Z, 
+and the third one of Z classified against Y and X.
+
+https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5
+https://www.analyticsvidhya.com/blog/2020/06/auc-roc-curve-machine-learning/
+------------------------------------------------------------------------------------------------------------------
+what is bias and variance?
+ 
+-------------------------------------------------------------------------------------------------------------------
+what is Bias varience Tradeoff?
+
+Model with high bias pays very little attention to the training data and oversimplifies the model. 
+It always leads to high error on training and test data. 
+
+Variance is the variability of model prediction for a given data point or a value which tells us spread of our data. 
+Model with high variance pays a lot of attention to training data and does not generalize on the data which it hasn’t seen before. 
+As a result, such models perform very well on training data but has high error rates on test data.
+
+In supervised learning, underfitting happens when a model unable to capture the underlying pattern of the data. 
+These models usually have high bias and low variance. It happens when we have very less amount of data to build an accurate model 
+or when we try to build a linear model with a nonlinear data. Also, these kind of models are very simple to capture the complex patterns 
+in data like Linear and logistic regression.
+
+In supervised learning, overfitting happens when our model captures the noise along with the underlying pattern in data. 
+It happens when we train our model a lot over noisy dataset. 
+These models have low bias and high variance. These models are very complex like Decision trees which are prone to overfitting.
+
+Why is Bias Variance Tradeoff?
+If our model is too simple and has very few parameters then it may have high bias and low variance. 
+On the other hand if our model has large number of parameters then it’s going to have high variance and low bias. 
+So we need to find the right/good balance without overfitting and underfitting the data.
+This tradeoff in complexity is why there is a tradeoff between bias and variance. 
+An algorithm can’t be more complex and less complex at the same time.
+
+Total Error
+To build a good model, we need to find a good balance between bias and variance such that it minimizes the total error.
+
+
+https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229
+
+-------------------------------------------------------------------------------------------------
+what is overfitting?
+In supervised learning, overfitting happens when our model captures the noise along with the underlying pattern in data. 
+It happens when we train our model a lot over noisy dataset. 
+These models have low bias and high variance. These models are very complex like Decision trees which are prone to overfitting.
+
+What is Overfitting? Please explain in laymen term
+Answer: Overfitting is a problem occurred when we have low error in the training set. But
+produces high error in test or unseen data.
+
+how to remove overfitting?
+Training with more
+adding regularization term
+using dropout
+data augmentation
+using dimensionality reduction  techniques in order to reduce the complexity of the model by removing some unncessary features.
+cross validation to select the best parameters
+------------------------------------------------------------------------------------------------------------------
+what is under fitting?
+In supervised learning, underfitting happens when a model unable to capture the underlying pattern of the data. 
+These models usually have high bias and low variance. It happens when we have very less amount of data to build an accurate model 
+or when we try to build a linear model with a nonlinear data. Also, these kind of models are very simple to capture the complex patterns 
+in data like Linear and logistic regression.
+
+What is Underfitting? Please explain in laymen term
+Answer: Underfitting is a problem, when we have low error in both training set and the testing
+set. Few algorithms works better for interpretations. But fails for better predictions.
+
+how to remove under fitting?
+increase the number of epochs which might help model to learn more.
+increase the number of features if possible to add some more information about the data and thereby increasing its complexity.
+Remove noise from the data
+perform feature engineering.
+----------------------------------------------------------------------------------------------------
+what is the effect of multi collineartity?
+When the issue of multicollinearity occurs, least-squares are unbiased, and variances are large, 
+this results in predicted values to be far away from the actual values. 
+-----------------------------------------------------------------------------------------------------
+what is curse of dimensionality?
+The curse of dimensionality basically means that the error increases with the increase in the number of features. 
+It refers to the fact that algorithms are harder to design in high dimensions and often have a running time exponential in the dimensions.
+---------------------------------------------------------------------------------------------------
+what is feature scaling?
+Feature Scaling is a technique to standardize the independent features present in the data in a fixed range. 
+It is performed during the data pre-processing to handle highly varying magnitudes or values or units.
+Still, like most other machine learning steps, feature scaling too is a trial and error process, not a single silver bullet.
+
+Why do we need scaling?
+Machine learning algorithm just sees number — if there is a vast difference in the range say few ranging in thousands and few ranging in the tens, 
+and it makes the underlying assumption that higher ranging numbers have superiority of some sort. 
+So these more significant number starts playing a more decisive role while training the model.
+
+The machine learning algorithm works on numbers and does not know what that number represents. 
+A weight of 10 grams and a price of 10 dollars represents completely two different things — which is a no brainer for humans, 
+but for a model as a feature, it treats both as same.
+Thus feature scaling is needed to bring every feature in the same range without any upfront importance. 
+
+ if you have multiple independent variables like age, salary, and height; With their range as (18–100 Years), (25,000–75,000 Euros), and (1–2 Meters) respectively, 
+feature scaling would help them all to be in the same range, 
+for example- centered around 0 or in the range (0,1) depending on the scaling technique.
+
+Another reason why feature scaling is applied is that few algorithms like Neural network gradient descent converge 
+much faster with feature scaling than without it.
+
+we use scaling in when we are using any algorithm that uses optimizer so that the model converges much faster.
+
+Feature scaling Techniques?
+The most common techniques of feature scaling are Normalization and Standardization.
+Normalization is used when we want to bound our values between two numbers, typically, between [0,1] or [-1,1]. 
+While Standardization transforms the data to have zero mean and a variance of 1, they make our data unitless. 
+
+which algorithms need feature scaling?
+Machine learning algorithms that use gradient descent as an optimization technique require data to be scaled.
+Having the features on a similar scale can help the gradient descent converge more quickly towards the minima.
+
+example: linear regression, logistic regression
+even distance based algorithms also needs data to be scaled because behind the scences they are using distance between the datapoints
+to determine their similarity
+example: SVM, KNN,K-means 
+
+which algorithms doesn't need feature scaling?
+Algorithms that do not require normalization/scaling are the ones that rely on rules. 
+They would not be affected by any monotonic transformations of the variables. 
+
+Examples of algorithms in this category are all the tree-based algorithms — CART, Random Forests, Gradient Boosted Decision Trees. 
+These algorithms utilize rules (series of inequalities) and do not require normalization.
+
+How to perform feature scaling?
+Below are the few ways we can do feature scaling.
+1) Min Max Scaler
+2) Standard Scaler
+3) Max Abs Scaler
+4) Robust Scaler
+5) Quantile Transformer Scaler
+6) Power Transformer Scaler
+7) Unit Vector Scaler
+
+when do we use normalization?
+Normalization of data is a type of Feature scaling and is only required when the data distribution is unknown or the data doesn't have Gaussian Distribution. 
+This type of scaling technique is used when the data has a diversified scope and the algorithms on which the data are being trained do not make presumptions about 
+the data distribution such as Artificial Neural Network.
+
+
+When To Standardize Data?
+Standardized data is usually preferred when the data is being used for multivariate analysis i.e. when we want all the variables of comparable units. 
+It is usually applied when the data has a bell curve i.e. it has gaussian distribution. No this isn't always true but is considered more effective when applied to Gaussian distribution. 
+This technique comes in handy when the data has varying ratios and the algorithms used, make assumptions about the data distribution like Logistic Regression, Linear Discriminant Analysis, etc."
+
+https://towardsdatascience.com/all-about-feature-scaling-bcc0ad75cb35#:~:text=Feature%20scaling%20is%20essential%20for,that%20calculate%20distances%20between%20data.&text=Therefore%2C%20the%20range%20of%20all,proportionately%20to%20the%20final%20distance.
+-----------------------------------------------------------------------------------------------------------------------
+what is feature selection?
+Feature selection is the process of reducing the number of input variables when developing a predictive model. 
+It is desirable to reduce the number of input variables to both reduce the computational cost of modeling and, 
+in some cases, to improve the performance of the model.
+
+what are the different types of feature selection or dimensionality reduction techniques??
+PCA
+Correlation matrix
+Forward,backward selection, stepwise selection
+Variance Threshold
+LASSO Regularization (L1)
+Random Forest Importance
+
+when should we remove features from a dataset?
+we can remove features where the null values are more than certain range
+remove when there is no varience in the data
+we can also remove the features with less correlation with target
+if two independent features are highly correlated we can remove one.
+
+https://www.analyticsvidhya.com/blog/2020/10/feature-selection-techniques-in-machine-learning/
+-------------------------------------------------------------------------
+outliers detection:
+https://towardsdatascience.com/detecting-and-treating-outliers-in-python-part-1-4ece5098b755
+https://medium.com/analytics-vidhya/how-to-remove-outliers-for-machine-learning-24620c4657e8
+https://www.analyticsvidhya.com/blog/2016/01/guide-data-exploration/
+
+outliers can be detected using visulaization tools such as box plot and scatter plots.
+we use univariate and multivariate analysis to check for outliers
+Discover outliers with mathematical function.
+Extreme Value Analysis
+You do not need to know advanced statistical methods to look for, analyze and filter out outliers from your data. 
+Start out simple with extreme value analysis.
+Projection methods that model the data into lower dimensions using linear correlations. 
+For example, principle component analysis and data with large residual errors may be outliers.
+
+Focus on univariate methods
+Visualize the data using scatterplots, histograms and box and whisker plots and look for extreme values
+Assume a distribution (Gaussian) and look for values more than 2 or 3 standard deviations from the mean or 1.5 times from the first or third quartile
+Filter out outliers candidate from training dataset and assess your models performance.
+
+Z-Score-
+
+The intuition behind Z-score is to describe any data point by finding their relationship with the Standard Deviation and Mean of the group of data points. 
+Z-score is finding the distribution of data where mean is 0 and standard deviation is 1 i.e. normal distribution.
+
+You must be wondering that, how does this help in identifying the outliers? Well, while calculating the Z-score we re-scale and center the data and look for data points which are too far from zero. These data points which are way too far from zero will be treated as the outliers. 
+In most of the cases a threshold of 3 or -3 is used i.e if the Z-score value is greater than or less than 3 or -3 respectively,
+ that data point will be identified as outliers.
+
+IQR score -
+Box plot use the IQR method to display data and outliers(shape of the data) but in order to be get a list of identified outlier, 
+we will need to use the mathematical formula and retrieve the outlier data.
+
+The interquartile range (IQR), also called the midspread or middle 50%, or technically H-spread, is a measure of statistical dispersion, being equal to the difference between 75th and 25th percentiles, or between upper and lower quartiles, IQR = Q3 − Q1.
+In other words, the IQR is the first quartile subtracted from the third quartile; these quartiles can be clearly seen on a box plot on the data.
+It is a measure of the dispersion similar to standard deviation or variance, but is much more robust against outliers.
+IQR is somewhat similar to Z-score in terms of finding the distribution of data and then keeping some threshold to identify the outlier.
+
+https://towardsdatascience.com/ways-to-detect-and-remove-the-outliers-404d16608dba
+https://machinelearningmastery.com/how-to-use-statistics-to-identify-outliers-in-data/
+
+------------------------------------------------------------------------------------------------------
+List of Feature Engineering Techniques
+missing values Imputation
+Handling Outliers
+Binning
+Log Transform
+One-Hot Encoding
+Grouping Operations
+Scaling
+
+---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
+
+10. Explain One-hot encoding and Label Encoding. How do they affect the dimensionality of the given dataset?
+One-hot encoding is the representation of categorical variables as binary vectors. Label Encoding is converting labels/words into numeric form. 
+Using one-hot encoding increases the dimensionality of the data set. Label encoding doesn’t affect the dimensionality of the data set. 
+One-hot encoding creates a new variable for each level in the variable whereas, in Label encoding, the levels of a variable get encoded as 1 and 0.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+5. How do you select important variables while working on a data set? 
+There are various means to select important variables from a data set that include the following:
+
+Identify and discard correlated variables before finalizing on important variables
+The variables could be selected based on ‘p’ values from Linear Regression
+Forward, Backward, and Stepwise selection
+Lasso Regression
+Random Forest and plot variable chart
+Top features can be selected based on information gain for the available set of features.
+pca
+
+Chi-square Test
+The Chi-square test is used for categorical features in a dataset. 
+We calculate Chi-square between each feature and the target and select the desired number of features with the best Chi-square scores. 
+In order to correctly apply the chi-squared in order to test the relation between various features in the dataset and the target variable, 
+the following conditions have to be met: 
+the variables have to be categorical, sampled independently and values should have an expected frequency greater than 5.
+
+Information Gain
+
+Information gain calculates the reduction in entropy from the transformation of a dataset. 
+It can be used for feature selection by evaluating the Information gain of each variable in the context of the target variable.
+
+Correlation Coefficient
+Correlation is a measure of the linear relationship of 2 or more variables. Through correlation, we can predict one variable from the other. 
+The logic behind using correlation for feature selection is that the good variables are highly correlated with the target. 
+
+
+Variance Threshold
+The variance threshold is a simple baseline approach to feature selection. It removes all features which variance doesn’t meet some threshold. 
+By default, it removes all zero-variance features, i.e., features that have the same value in all samples.
+
+Wrapper Methods:
+Forward Feature Selection
+Backward Feature Elimination.
+Exhaustive Feature Selection
+
+ Embedded Methods:
+ LASSO Regularization (L1)
+ Random Forest Importance
+ 
+ https://www.analyticsvidhya.com/blog/2020/10/feature-selection-techniques-in-machine-learning/
+---------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------
+Weight Initialization Techniques in Neural Networks:
+
+Zero initialization :
+In general practice biases are initialized with 0 and weights are initialized with random numbers, what if weights are initialized with 0?
+If all the weights are initialized with 0, the derivative with respect to loss function is the same for every w in W[l],
+thus all weights have the same value in subsequent iterations. This makes hidden units symmetric and continues for all the n iterations i.e. 
+setting weights to 0 does not make it better than a linear model. 
+An important thing to keep in mind is that biases have no effect what so ever when initialized with 0.
+
+
+Random initialization :
+Assigning random values to weights is better than just 0 assignment. 
+But there is one thing to keep in my mind is that what happens if weights are initialized high values or very low values 
+and what is a reasonable initialization of weight values.
+a) If weights are initialized with very high values the term np.dot(W,X)+b becomes significantly higher and if an activation function like sigmoid() is applied, the function maps its value near to 1 where the slope of gradient changes slowly and learning takes a lot of time.
+b) If weights are initialized with low values it gets mapped to 0, where the case is the same as above.
+This problem is often referred to as the vanishing gradient.
+
+HE initialization:
+He initialization: we just simply multiply random initialization with sqrt((2/size(l-1))
+wl=np.random.randn(size_l,size_(l-1))*np.sqrt((2/size(l-1))
+
+Xavier initialization: 
+It is same as He initialization but it is used for tanh() activation function, in this method 2 is replaced with 1.
+wl=np.random.randn(size_l,size_(l-1))*np.sqrt((1/size(l-1))
+
+https://towardsdatascience.com/weight-initialization-techniques-in-neural-networks-26c649eb3b78
+----------------------------------------------------------------------------------------------------------------------------
+PRINCIPAL COMPONENT ANALYSIS:
+
+
+PCA is a most widely used tool in exploratory data analysis, for dimensionality reduction and in machine learning for predictive models.
+number of pc can be <=no of features in a dataset.
+it is used to reduce the number of features and reduce the overfitting problems which occur due to high dimensionality of the data.
+
+PCA is an unsupervised statistical technique that is used to reduce the dimensions of the dataset. 
+ML models with many input variables or higher dimensionality tend to fail when operating on a higher input dataset. 
+PCA helps in identifying relationships among different variables & then coupling them. 
+PCA works on some assumptions which are to be followed and it helps developers maintain a standard.
+
+PCA involves the transformation of variables in the dataset into a new set of variables which are called PCs (Principal Components). 
+The principal components would be equal to the number of original variables in the given dataset.
+
+STEP 1: STANDARDIZATION:
+
+The aim of this step is to standardize the range of the continuous initial variables so that each one of them contributes equally to the analysis.
+
+Standardization is all about scaling your data in such a way that all the variables and their values lie within a similar range.
+
+
+STEP 2: COVARIANCE MATRIX COMPUTATION:
+The aim of this step is to understand how the variables of the input data set are varying from the mean with respect to each other, 
+or in other words, to see if there is any relationship between them. Because sometimes, variables are highly correlated in such a way that they contain redundant information. 
+So, in order to identify these correlations, we compute the covariance matrix.
+
+suppose there are two features x,y then covaraince matrix of x,y is:
+
+[covr(x,x) covr(x,y)]
+[covr(y,x) covr(y,y)]
+
+cov(x,x)=summation of i=1 to n((xi-Xmean)(xi-Xmean)/n-1)    n is no of samples
+cov(x,y)=summation of i=1 to n((xi-Xmean)(yi-Ymean)/n-1)
+
+
+STEP 3: COMPUTE THE EIGENVECTORS AND EIGENVALUES OF THE COVARIANCE MATRIX TO IDENTIFY THE PRINCIPAL COMPONENTS
+Eigenvectors and eigenvalues are the linear algebra concepts that we need to compute from the covariance matrix in 
+order to determine the principal components of the data.
+
+eigen values=covr matrix-lamda* identity matrix
+dimension of identity matrix is equal to the dimensions of covr matrix
+then we will find the value of lambda, usually we will get two values lamda1 and lamda2 these are the eigen values.
+suppose there are two features then covarience matrix dimension would be 2 x 2.
+we will get two eigen values for 2 x 2 matrix.
+
+then we will find eigen vectors w.r.to these eigen values.
+
+How we calculate eigen vectors is
+
+covarience matrix*[x1] = first eigen value[x1]
+				  [y1]                    [y1]
+
+then by multiplying both  we get x1= some value * y1
+https://www.youtube.com/watch?v=_ZkFfrCfIws
+where some value will be the eigen vector
+the eigen values with highest values of eigen vectors will be the first principal component which means it is most significant and it higly
+effects the target.
+
+
+Step 5: Reducing the dimensions of the data set
+The last step in performing PCA is to re-arrange the original data with the final principal components which represent the maximum 
+and the most significant information of the data set. In order to replace the original data axis with the newly formed Principal Components, 
+you simply multiply the transpose of the original data set by the transpose of the obtained feature vector.
+
+5.in the same way we Form Principal Components. 
+Higher the values of eigen vectors for a given eigen value higher will be the weightage to the feature w.r.to target.
+
+If your data set is of 5 dimensions, then 5 principal components are computed, 
+such that, the first principal component stores the maximum possible information and 
+the second one stores the remaining maximum info and so on, you get the idea.
+
+https://builtin.com/data-science/step-step-explanation-principal-component-analysis
+https://www.edureka.co/blog/principal-component-analysis/
+-----------------------------------------------------------------------------------------------------------
+Advantages and disadvantages of PCA?
+
+Advantages:
+1. Removes Correlated Features
+2. Improves Algorithm Performance
+3. Reduces Overfitting
+4. Improves Visualization
+
+Disadvantages of Principal Component Analysis
+1. Independent variables become less interpretable
+
+2. Data standardization is must before PCA: 
+
+You must standardize your data before implementing PCA, otherwise PCA will not be able to find the optimal Principal Components.
+
+3. Information Loss: 
+
+Although Principal Components try to cover maximum variance among the features in a dataset, 
+if we don’t select the number of Principal Components with care, 
+it may miss some information as compared to the original list of features.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+What are fit and transform, fit _tranform in Machine learning?
+
+Fit is used to calulate the parameter values for a specific function which are required for that function to apply on data.
+
+Transform will use the parameters calculated by Fit method and use it in the function to apply on data.
+
+Fit_transform does both the above steps in a single step
+
+ 
+
+we use fit and transform for training and only transform for test because we use the same mean and std calculated from the training data.
+this helps in reducing the overfitting problem in ML.
+
+Fit is also used for model training where the model learns from the input data and sets up parameters.
+
+In summary fit performs the training, transform changes the data in the pipeline in order to pass it on to the next stage in the pipeline, 
+and fit_transform does both the fitting and the transforming in one possibly optimized step.
+--------------------------------------------------------------------------------------------------------------------
+WHAT IS FIT AND TRANSFORM in standardizaton?
+
+standard normal distribution is nothing but caluclating the mean and std from the data, then we subtract each data point mean from data point 
+and divide the result with std.
+
+in the same way fit and transform works.
+
+Fit will calculate the mean and std for each particular column
+transform will perform standardization operation on the data like subtract mean and divide the result with std.
+
+-------------------------------------------------------------------------------------------------------------------------------
+WHAT IS FIT AND TRANSFORM in PCA?
+
+FIT will calculate the eigen values and eigen vectors w.r.to each feature.
+
+Transform will apply the PCA formula on the data by using eigen values and eigen vectors to reduce the no of features in the dataset.
+
+--------------------------------------------------------------------------------------------------------------------------------
+WHAT IS FIT AND TRANSFORM in imputation?
+
+we use imputation for filling the null values.
+
+SUPPOSE WE ARE DOING THE MEAN IMPUTATION
+
+Fit will calculate the mean of the data
+
+Transform will apply or fill the missing values with the mean value.
+----------------------------------------------------------------------------------------------------------------------------
+what is pipeline in machine learning?
+
+A pipeline is a sequence of steps that are stacked together.
+Pipeline chains all the individual steps , which can then be applied to training data in block.
+A pipeline can also be used to train the different models one by one with the same data in order to determine the best performing model.
+
+----------------------------------------------------------------------------------------------------
+What is RandomizedSearchCV?
+Answer:
+Randomized search CV is used to perform a random search on hyperparameters. Randomized search CV uses a fit and score method, 
+predict proba, decision_func, transform, etc..,
+The parameters of the estimator used to apply these methods are optimized by cross-validated search over parameter settings.
+In contrast to GridSearchCV, not all parameter values are tried out, but rather a fixed number of parameter settings is sampled from the 
+specified distributions. 
+The number of parameter settings that are tried is given by n_iter.
+
+---------------------------------------------------------------------------------------------------
+What is GridSearchCV?
+
+Grid search is the process of performing hyperparameter tuning to determine the optimal values for a given model.
+Grid search runs the model on all the possible range of hyperparameter values and outputs the best model.
+
+------------------------------------------------------------------------------------------------------
+What is BaysianSearchCV?
+Answer:
+Bayesian search, in contrast to the grid and random search, keeps track of past evaluation results, 
+which they use to form a probabilistic model mapping hyperparameters to a probability of a score on the objective function.
+
+--------------------------------------------------------------------------------------------------------
+
+What is ZCA Whitening?
+Answer:
+Zero Component Analysis:
+Making the co-variance matrix as the Identity matrix is called whitening. This will remove the first and second-order statistical structure
+ZCA transforms the data to zero means and makes the features linearly independent of each other
+In some image analysis applications, especially when working with images of the color and tiny type, 
+it is frequently interesting to apply some whitening to the data before, 
+e.g. training a classifier.
+-----------------------------------------------------------------------------------------------------------
+A data set is given to you about utilities fraud detection. 
+You have built a classifier model and achieved a performance score of 98.5%. 
+Is this a goodmodel? If yes, justify. If not, what can you do about it?
+Data set about utilities fraud detection is not balanced enough i.e. imbalanced.
+ In such a data set, accuracy score cannot be the measure of performance as it may only be predict the majority class label correctly
+but in this case our point of interest is to predict the minority label. 
+But often minorities are treated as noise and ignored. 
+So, there is a high probability of misclassification of the minority label as compared to the majority label. 
+For evaluating the model performance in case of imbalanced data sets, 
+we should use Sensitivity (True Positive rate) or Specificity (True Negative rate) to determine class label wise performance of the classification model.
+ 
+If the minority class label’s performance is not so good, we could do the following:
+
+We can use under sampling or over sampling to balance the data.
+We can change the prediction threshold value.
+We can assign weights to labels such that the minority class labels get larger weights.
+We could detect anomalies.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+A data set is given to you and it has missing values which spread along 1standard deviation from the mean. How much of the data would remain untouched?
+
+It is given that the data is spread across mean that is the data is spread across an average. So, we can presume that it is a normal distribution. 
+In a normal distribution, about 68% of data lies in 1 standard deviation from averages like mean, mode or median. 
+That means about 32% of the data remains uninfluenced by missing values.
+--------------------------------------------------------------------------------------------------------------------------------------------
+What you do if there are outliers?
+Following are the approaches to handle the outliers:
+1. Drop the outlier records
+2. Assign a new value: If an outlier seems to be due to a mistake in your data, you try imputing a value.
+3. If percentage-wise the number of outliers is less, but when we see numbers, there are several, 
+then, in that case, dropping them might cause a loss in insight. 
+We should group them in that case and run our analysis separately on them.
+--------------------------------------------------------------------------------------------------
+What are the data normalization method you have applied, and why?
+
+when multiple attributes are there, but attributes have values on different scales, 
+this may lead to poor data models while performing data mining operations. So they are normalized to bring all the attributes on the same scale, 
+usually something between (0,1). It is not always a good idea to normalize the data since we might lose information about maximum and minimum values.
+
+ 
+Sometimes it is a good idea to do so.
+
+----------------------------------------------------------------------------------------------------
+What is the difference between normalization and Standardization with example?
+In ML, every practitioner knows that feature scaling is an important issue. 
+The two most discussed scaling methods are Normalization and Standardization. 
+Normalization typically means it rescales the values into a range of [0,1]. It is an alternative approach to Z-score normalization 
+(or standardization) is the so-called Min-Max scaling (often also called “normalization” - a common cause for ambiguities). 
+In this approach, the data is scaled to a fixed range - usually 0 to 1. Scikit-Learn provides a transformer called MinMaxScaler for this. 
+A Min-Max scaling is typically done via the following equation: Xnorm = X-Xmin/Xmax-Xmin
+
+
+Standardization (or Z-score normalization) typically means rescales data to have a mean of 0 and a standard deviation of 1 (unit variance) 
+Formula: Z or X_new=(x−μ)/σ where μ is the mean (average), and σ is the standard deviation from the mean; standard scores (also called z scores) 
+Scikit-Learn provides a transformer called StandardScaler for standardization.
+
+------------------------------------------------------------------------------------------------------------------
+
+What is upsampling and downsampling with examples? 
+The classification data set with skewed class proportions is called an imbalanced data set. 
+Classes which make up a large proportion of the data sets are called majority classes. 
+Those make up smaller proportions are minority classes. 
+Degree of imbalance Proportion of Minority Class 1>> Mild 20-40% of the data set 2>> Moderate 1-20% of the data set 3>> Extreme <1% of the data set 
+If we have an imbalanced data set, first try training on the true distribution. If the model works well and generalises, you are done! 
+If not, try the following up sampling and down sampling technique. 
+1. Up-sampling Upsampling is the process of randomly duplicating observations from the minority class to reinforce its signal. 
+First, we will import the resampling module from Scikit-Learn: 
+Module for resampling Python 1- From sklearn.utils import resample.
+Next, we will create a new Data Frame with an up-sampled minority class. 
+Here are the steps: 1- First, we will separate observations from each class into different Data Frames. 
+2- Next, we will resample the minority class with replacement, setting the number of samples to match that of the majority class. 
+3- Finally, we'll combine the up-sampled minority class Data Frame with the original majority class Data Frame. 
+2-Down-sampling Downsampling involves randomly removing observations from the majority class to prevent its signal from dominating the learning algorithm. 
+The process is similar to that of sampling. Here are the steps: 1-First, we will separate observations from each class into different Data Frames.
+2-Next, we will resample the majority class without replacement, setting the number of samples to match that of the minority class. 
+3-Finally, we will combine the down-sampled majority class Data Frame with the original minority class Data Frame.
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+Answer: Predictive and Prescriptive analytics comes into picture only when descriptive and
+diagnostic analytics is successful and provide some value to the business.
+
+When we can provide insights in a project?
+þÿAnswer: Once the affecting factors are found, let s make some prediction with machine learning
+algorithms. Once we feel the model is making sense out of our data. We will prescribe useful insight.
+
+Name any industry that is drastically affected by Data science?
+Answer: The retail industry is one among the few 
+
+
+How do DS help in retailers?
+Answer: Data Science helps retailers stay ahead in competition or at least on par with their
+competitors on selling goods as per demand and forecast their future and present sales based on season and trend.
+
+Q65) How much domain knowledge is required to do DS?
+Answer: Domain knowledge and model building experience comes handy in this kind of
+situations. I worked in a sales driver mode only when i understood business value point.
+
+Q80) How would you prioritize your work as DS?
+Answer: DS helps one to do the predictions based on existing data. So, it will help in various
+aspects like knowing the nature of the business and helps in growing the business.
+
+What means by heteroscedasticity?
+Answer: Heteroscedasticity is specifically the contrast of homoscedasticity, which indicates that
+the error terms are not uniformly distributed. To change this phenomenon, normally, a log
+function is used.
+---------------------------------------------------------------------------------------------------------------
+Detecting Multicollinearity
+Step 1: Review scatterplot and correlation matrices. ...
+Step 2: Look for incorrect coefficient signs. ...
+Step 3: Look for instability of the coefficients. ...
+Step 4: Review the Variance Inflation Factor.
+
+-----------------------------------------------------------------------------------------------
+k fold and stratified k fold:
+
+KFold is a cross-validator that divides the dataset into k folds.
+
+Stratified is to ensure that each fold of dataset has the same proportion of observations with a given label.
+
+So, it means that StratifiedKFold is the improved version of KFold
+
+Therefore, the answer to this question is we should prefer StratifiedKFold over KFold when dealing with classifications tasks with 
+imbalanced class distributions.
+
+Suppose that there is a dataset with 16 data points and imbalanced class distribution. In the dataset, 12 of data points belong to class A and the rest
+ (i.e. 4) belong to class B. The ratio of class B to class A is 1/3. If we use StratifiedKFold and set k = 4, 
+then the training sets will include 3 data points from class A and 9 data points from class B and the test sets include 3 
+data points from class A and 1 data point from class B.
+
+As we can see, the class distribution of the dataset is preserved in the splits by StratifiedKFold while KFold does not take this into consideration.
+--------------------------------------------------------------------------------------------------------------------------------
+20. What is a Box-Cox transformation?
+Box-Cox transformation is a power transform which transforms non-normal dependent variables into normal variables as 
+normality is the most common assumption made while using many statistical techniques. 
+It has a lambda parameter which when set to 0 implies that this transform is equivalent to log-transform. 
+It is used for variance stabilization and also to normalize the distribution.
+
+“KickStart your Artificial Intelligence Journey with Great Learning which offers high-rated Artificial Intelligence courses 
+with world-class training by industry leaders. Whether you’re interested in machine learning, data mining, or data analysis, 
+Great Learning has a course for you!”
+
+---------------------------------------------------------------------------------------------------------------------------------
+Kolomogorov Smirnov chart
+K-S or Kolmogorov-Smirnov chart measures performance of classification models. 
+More accurately, K-S is a measure of the degree of separation between the positive and negative distributions. 
+The K-S is 100, if the scores partition the population into two separate groups in which one group contains all the positives and the other all the negatives.
+
+On the other hand, If the model cannot differentiate between positives and negatives, then it is as if the model selects cases randomly from the population. 
+The K-S would be 0. In most classification models the K-S will fall between 0 and 100, and that the higher the value the better the model is at separating the positive from negative cases.
+

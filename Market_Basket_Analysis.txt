@@ -1,0 +1,131 @@
+Apriori Algorithm:
+
+The Apriori algorithm is a widely used algorithm in association rule mining, which helps identify interesting relationships between items in large datasets, 
+such as market basket analysis. 
+It operates based on three key metrics: support, confidence, and lift.
+
+Support:
+
+Support measures the frequency with which an itemset (a set of one or more items) appears in the dataset.
+Mathematically, support for an itemset X is calculated as the ratio of transactions containing X to the total number of transactions.
+High support values indicate that the itemset is frequently found in the dataset, while low support values suggest infrequent occurrence.
+
+Support(X) = (Number of transactions containing X) / (Total number of transactions)
+
+Confidence:
+
+Confidence measures the likelihood that an association rule is true. 
+In the context of association rules, an association rule has the form "if X, then Y," where X and Y are itemsets.
+Confidence is calculated as the ratio of the support of both X and Y together to the support of X.
+High confidence values indicate that Y is often purchased when X is purchased.
+
+confidence=support(x u y)/support(x)
+
+Lift:
+
+Lift measures how much more likely item Y is to be bought when item X is bought, compared to when item Y is bought without considering item X.
+A lift value greater than 1 indicates a positive association, meaning that the presence of item X increases the likelihood of item Y being bought.
+A lift value equal to 1 indicates independence, suggesting that the presence of item X has no effect on item Y.
+A lift value less than 1 indicates a negative association, meaning that the presence of item X decreases the likelihood of item Y being bought.
+
+Lift(X -> Y) = (Support(X ∪ Y) / (Support(X) * Support(Y)))
+
+
+
+Terms in the output table of Association rule:
+
+Antecedents:
+
+This column lists the items or itemsets that make up the left-hand side (LHS) of the association rule. 
+These are the items that are considered as the condition or "if" part of the rule.
+
+Consequents:
+
+This column lists the items or itemsets that make up the right-hand side (RHS) of the association rule. 
+These are the items that are considered as the consequence or "then" part of the rule.
+
+Support:
+
+The support of a rule indicates how frequently the entire rule (both antecedents and consequents) appears in the dataset. It's a measure of the rule's popularity.
+Confidence:
+
+The confidence of a rule indicates the conditional probability that the consequents will be bought given that the antecedents are bought. 
+It's a measure of the strength of the association between the items in the rule.
+
+Lift:
+
+The lift of a rule measures how much more likely the consequents are to be bought when the antecedents are bought, compared to when they are bought independently. 
+It's a measure of the significance of the association.
+
+Support for Antecedent(s):
+
+This column provides the support value specifically for the antecedents of the rule. 
+It shows how frequently the antecedents appear in transactions.
+
+Support for Consequent(s):
+
+Similar to the support for antecedents, this column provides the support value for the consequents of the rule.
+
+Conviction:
+
+Conviction measures the degree of implication of a rule. 
+It helps identify how much more likely the antecedents and consequents are to occur together compared to what would be expected if they were statistically independent.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Explained with example
+
+Antecedents:
+
+This column lists the items or itemsets that make up the left-hand side (LHS) of the association rule. 
+In the first row, the antecedents are {A, B}, indicating that the rule applies when both items A and B are present in a transaction.
+
+Consequents:
+
+This column lists the items or itemsets that make up the right-hand side (RHS) of the association rule. 
+In the first row, the consequent is {C}, indicating that when the antecedents {A, B} are present, item C is likely to be present as well.
+
+Support:
+
+The support of a rule is a measure of how frequently the entire rule (both antecedents and consequents) appears in the dataset. 
+It quantifies the popularity of the rule. In the first row, the support is 0.1, meaning that the rule {A, B} -> {C} is observed in 10% of the transactions in the dataset.
+
+Confidence:
+
+The confidence of a rule indicates the conditional probability that the consequents will be bought given that the antecedents are bought. 
+It measures the strength of the association between the items in the rule. 
+In the first row, the confidence is 0.8, suggesting that when both items A and B are bought (antecedents), there is an 80% chance that item C (consequent) will also be bought.
+
+Lift:
+
+Lift measures how much more likely the consequents are to be bought when the antecedents are bought, 
+compared to when they are bought independently (i.e., without considering the rule). 
+A lift value greater than 1 indicates a positive association, meaning that the presence of the antecedents increases the likelihood of the consequents being bought. 
+In the first row, the lift is 1.25, indicating a moderate positive association.
+
+
+
+In summary, the table provides information about association rules and their properties:
+
+Antecedents and Consequents define the items or itemsets involved in the rule.
+Support quantifies the rule's popularity in the dataset.
+Confidence measures the strength of the association between antecedents and consequents.
+Lift indicates whether the rule represents a positive association (lift > 1) or a negative association (lift < 1) and quantifies the strength of that association.
+
+
+based on the trees we create a conditional pattern base
+where we consider the different paths to reach a particular item in the trees
+from those unique paths for each product we need to find the common product in each path
+
+
+Difference between Apriori and FP-Growth:
+
+Apriori needs multiple scans of the database to check the support of each itemset generated and this leads to high costs.
+FP-Growth algorithm needs to scan the database only twice when compared to Apriori which scans the transactions for each iteration.
+
+Candidate itemsets are formed in the form of an array in apriori, in FP-Growth a tree is created.
+
+Since apriori needs lots of scans of the db it is slower than FP-Growth.
+
+Apriori is a breadth first approach as it creates n-frequency itemsets in the form of array where breadth goes on increasing.
+In FP-Growth depth of the tree increases.
+
