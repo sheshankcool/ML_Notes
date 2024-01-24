@@ -150,6 +150,10 @@ how to delete the present folder as a repo?
 how to rename a file using git?
 git mv oldfilename newfilename
 
+how to ignore a file from tracking it?
+create a file in the repository name it .gitignore
+add the filename in .gitignore
+
 git add:
  git add is used for two purposes:
   git add --a filename is used to add untracked files or newly added files into the staging area.
