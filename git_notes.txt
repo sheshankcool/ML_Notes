@@ -147,6 +147,8 @@ git init:
 how to delete the present folder as a repo?
  rm -f .git will remove the present directory as a repo and the folder will not be tracked anymore. it means the present directory is not a git repo, it is just a normal folder now.
 
+how to rename a file using git?
+git mv oldfilename newfilename
 
 git add:
  git add is used for two purposes:
