@@ -153,6 +153,7 @@ git add:
   git add --a filename is used to add untracked files or newly added files into the staging area.
   git add filename is used to turn a modified filintoto unmodified version in other words this command will help the modified file to send the changes to init to the staging area.
 git add .,git add *,git add -A, any one can be used to add all the files from the current working tree to the staging area.
+The files which are added to the staging area are called tracked files.
 
 
 git commit:
@@ -165,6 +166,11 @@ git commit:
   step-1 press i
   step-2 write the message and then press escape
   step-3 write :wq and press enter this will let u come out of commit
+
+How to commit the tracked files by skipping the staging area?
+git commit -a -m "message"
+
+Note: you can only commit already tracked files but if you have added some new file which is not previously added to staging area, that file should be added to staging area atleast once.
 
 
 git log:
