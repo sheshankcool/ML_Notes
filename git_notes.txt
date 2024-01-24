@@ -1,9 +1,71 @@
 newthings: https://medium.com/@gitship/15-git-hacks-to-save-your-life-as-a-developer-aa8808846dbb#:~:text=To%20exit%20git%20log%2C%20type,q%E2%80%9D%20or%20%E2%80%9Cz%E2%80%9D.
 log formats: https://git-scm.com/docs/pretty-formats
 
+---------------------------------------------------------------------------------------------------------------------------------------
+
+what is GIT?
+Git is a distributed version control system (VCS) that is widely used in software development and increasingly in data science. It is designed to track changes in source code during software development, allowing multiple developers to collaborate on a project seamlessly.
+
+
+Use for Software Developers:
+````````````````````````````
+Version Control:
+Git provides a robust version control system that allows developers to track changes to their code over time. This helps in maintaining a history of revisions, enabling the retrieval of specific versions of the code.
+
+Collaboration:
+Multiple developers can work on the same project simultaneously without interfering with each other's work. Git facilitates collaboration by allowing developers to work on different branches and merge changes when ready.
+
+Branching and Merging:
+Developers can create branches to work on specific features or bug fixes independently. Git makes it easy to merge changes from one branch to another, promoting a structured and organized development process.
+
+Rollback and Time Travel:
+In case of errors or issues, developers can easily roll back to a previous version of the code. Git allows for "time travel," letting developers switch between different commits to understand the project's state at various points in time.
+
+Remote Repositories:
+Git supports remote repositories hosted on platforms like GitHub, GitLab, or Bitbucket. This allows teams to collaborate across different locations and provides a centralized location for code storage.
+
+Use for Data Scientists:
+
+Collaborative Data Science:
+Teams of data scientists can collaborate on projects by using Git to manage the versioning of their data and code. This is particularly important in projects involving the development of machine learning models or data analysis pipelines.
+
+Experiment Tracking:
+Git helps data scientists keep track of different experiments and iterations. By branching and tagging, it's easy to organize and compare different versions of models, data preprocessing steps, or feature engineering.
+
+Reproducibility:
+Git, when combined with tools like Docker and virtual environments, contributes to the reproducibility of data science experiments. The ability to recreate the exact environment and code that produced a particular result is crucial for validation and sharing.
+-------------------------------------------------------------------------------------------------------------------------------------
+Difference between GIT and Github?
+Git is a distributed version control system used for tracking changes in source code during software development. It provides a set of commands to manage and collaborate on code locally.
+
+GitHub, on the other hand, is a web-based platform that hosts Git repositories. It adds a collaborative layer, enabling developers to share, collaborate, and contribute to projects. GitHub provides a graphical interface, issue tracking, pull requests, and other collaboration features, making it a social coding platform built around Git. In essence, Git is the version control system, while GitHub is a platform built on top of Git that facilitates collaboration and sharing of Git repositories.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+what are the various websites where git repos can be stored?
+
+Git repositories can be hosted on platforms such as GitHub, GitLab, Bitbucket, SourceForge, AWS CodeCommit, Azure Repos, GitKraken Glo, and Gitea.
+------------------------------------------------------------------------------------------------------------------------------------------
 
 Git has 3 stage architecture:
 -working directory-->staging area-->repository(head)
+
+Working Directory:
+The working directory is where you make modifications to your files. It's the area where you actively edit and create new files.
+
+Staging Area (Index):
+The staging area is an intermediate area where changes are prepared (staged) before committing. Files in the staging area are ready to be included in the next commit. This stage allows you to selectively include or exclude changes before committing them to the repository.
+
+Repository (HEAD):
+The repository is the final stage where changes are permanently stored after being committed. The HEAD points to the latest commit in the branch, representing the current state of the project.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Does adding files to staging are store the files in some different location?
+
+No, adding files to the staging area in Git doesn't physically move or store the files in a different location. The staging area is a conceptual space within the Git system, and it doesn't involve duplicating or relocating files on disk.
+
+When you add files to the staging area using the git add command, Git records the current state of those files at that point in time. It doesn't create a separate copy; instead, it prepares these changes to be included in the next commit. The staging area acts as an index or cache that holds information about the changes you intend to commit.
+
+---------------------------------------------------------------------------------------------------------------------------------------------
 
 Working Directory – files in a current local directory that you are working on. if the data is in the working tree and not moved to the staging area, we get the files in red color when we search with the command git status, data will be in red color
 if the file is modified and yet to be moved to the staging area.
@@ -32,7 +94,7 @@ create an annotated tag by specifying the -a option to specify a tag message use
 git tag -a -m "message" v0.1
 
 check the present tags using "git tag" you will see v0.1
-use git show v0.1 to see tag information
+use git show v0.1 to see tag information and press q to come out.
 git push origin v0.1: to push the tag to the remote repository.
 git tag -a -m "just a temp tag" temp Head~: to teg the parent of the current commit with a temp tag
 git tag -d tag name: to delete a certain tag 
@@ -125,23 +187,37 @@ git clone.
 git clone "link of git repo" is used to get all the contents from the link and will be downloaded into the present folder.
 
 git remote:
-git remote is used to connect the local repository to the remote repository
+git remote is used to connect the local repository to the remote repository.
+
+git remote -v is used to get information that the local repository has an association with the remote repository.
+you typically see two URLs for each remote repository: one for fetching (reading data from the remote) and another for pushing (writing data to the remote). 
+
+example:
+origin  https://github.com/example/repo.git (fetch)
+origin  https://github.com/example/repo.git (push)
+
+you can also use "git remote show origin".
+This will provide more detailed information about the "origin" remote, including fetch and push URLs, branches, and other configuration details. Replace "origin" with the name of your specific remote if it's different.
+
+
 if you connecting for the first time then:
 	git remote add origin https://github.com/username/remote-repository.git
 if you are connecting to another repo or doing for other than the first time or if you get any error like git-error-fatal-remote-origin-already-exists:
 	git remote set-url origin git@github.com:username/remote-repository.git
 git remote: if a default remote repo is connected we get that name.
-git remote -v is used to get information that the local repository has an association with the remote repository
+
 
 git push:
 The push term refers to uploading local repository content to a remote repository. 
 Pushing is an act of transferring commits from your local repository to a remote repository. Pushing is capable of overwriting changes; caution should be taken when pushing.
  If we do not specify the location of a repository, then it will push to the default location at the origin master.
 when we are pushing the first time:
-git push -u origin master   #u flag is used to set up a tracking relationship between local and remote branches.
-Git Push Origin Master:
-Generally, the term origin stands for the remote repository, and master is considered the main branch. 
-So, the entire statement "git push origin master" pushed the local content on the master branch of the remote location.
+git push -u origin master   
+git push: Initiates the process of uploading local branch commits to a remote repository.
+-u origin master:
+-u: Sets up tracking, establishing a connection between the local branch ("master" in this case) and the corresponding remote branch ("master" on the "origin" remote).
+origin: The name of the remote repository.
+master: The name of the local branch you want to push.
 
 when does git push fail?
 when someone has made changes to the remote repository after you cloned.
@@ -149,6 +225,22 @@ and now you are trying to push your code to that repository which is updated.
 git push will fail as the previous version of your local is not the same as the remote repository.
 before pushing you must pull or fetch.
 
+----------------------------------------------------------------------------------------------------------
+Steps to push the data to the remote respository after commit:
+
+Check Remote:
+Confirm the remote repository you're pushing to. Use git remote -v to view remote names and URLs.
+
+Fetch and Merge Changes:
+Before pushing, it's a good practice to fetch and merge changes from the remote to ensure your local copy is up-to-date.
+git fetch origin
+git merge origin/main
+
+Push Changes:
+Once your local copy is updated, you can push your changes to the remote.
+git push origin main
+
+-----------------------------------------------------------------------------------------------------
 Delete a Remote Branch:
 We can delete a remote branch using git push. It allows removing a remote branch from the command line. To delete a remote branch, perform below command:
 git push origin -delete edited
