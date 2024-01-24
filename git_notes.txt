@@ -172,6 +172,9 @@ git commit -a -m "message"
 
 Note: you can only commit already tracked files but if you have added some new file which is not previously added to staging area, that file should be added to staging area atleast once.
 
+How to remove a commited file from a git repo using git?
+git rm filename
+
 
 git log:
  git log is used to see all the history of commits that we did.
