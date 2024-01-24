@@ -150,7 +150,8 @@ how to delete the present folder as a repo?
 how to rename a file using git?
 git mv oldfilename newfilename
 
-how to ignore a file from tracking it?
+how to ignore a tracked file from tracking it?
+git rm --cached filename
 create a file in the repository name it .gitignore
 add the filename in .gitignore
 
