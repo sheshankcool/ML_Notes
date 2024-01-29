@@ -135,7 +135,7 @@ OLS finds linear relationship between the input features and the target variable
 while finding the best fit line, it also estimates the coefficients of all the variables in the linear equation.
 The term "least squares" refers to the method of minimizing the sum of squared differences between the observed values and the values predicted by the linear equation. 
 The minimization is done using a loss function. The most common loss function used in OLS is the Mean Squared Error (MSE).
-The MSE is the average of the squared differences between the predicted target values and the actual target values.
+The MSE is the average of the squared differencess between the predicted target values and the actual target values.
 The algorithm adjusts the coefficients (β0, β1, β2, etc.) iteratively to minimize the MSE.
 Once the coefficients are determined, the model is said to be "fitted" to the data. 
 This means that the algorithm has found the best-fitting linear relationship between the input features and the target variable based on the training data.
@@ -2386,10 +2386,12 @@ if no: cur_count will be 0 and max_count will be 0"
 ---------------------------------------------------------------------------------------------------------------------
 Symmetric trees in Catboost:
 the concept of symmetric trees in CatBoost refers to a specific way decision nodes are split at each level of a tree. 
-Unlike traditional gradient boosting algorithms where each node can have a different split condition, 
+Unlike traditional gradient boosting algorithms where each node can have a different split condition, catboost ensures that there is only one condition at each level.
 CatBoost enforces a symmetric structure within each level of the decision trees it builds. 
 This can have a positive impact on training efficiency and generalization.
 the symmetric structure means that all decision nodes at the same level share the same split condition.
+
+For example there are 2 child nodes in assymetric trees based on the data there can be different condition but in catboost both child nodes will have same condition.
 
 ----------------------------------------------------------------------------------
 missing values in catboost:

@@ -1,3 +1,14 @@
+Collect data for two variables, let's call them X and Y, with n data points. Ensure that the data is continuous and numerical.
+Compute the mean of X and the mean of Y, and name them Xbar and Ybar respectively.
+Find the difference between each data point and the mean for both X and Y.
+Calculate the covariance Cov(X, Y)) by taking the sum of the product of the differences for each pair of data points and dividing by n.
+
+Cov(X,Y)=summation of i=1 to n (xi-Xbar)*(yi-Ybar)/n
+n is the no. of data points.
+Compute the standard deviations of X and Y using the square root of the sum of squared differences from the mean.
+Use the formula for the Pearson correlation coefficient (r):
+cov(X,Y)/SD(x)*SD(Y)
+----------------------------------------------------------------------------------------------------------------
  How you can make data normal using Box-Cox transformation?
 Explain evaluation protocols for testing your models? Compare hold-out vs k-fold cross-validation vs iterated k-fold cross-validation methods of testing.
  What do you understand by feature vectors?
