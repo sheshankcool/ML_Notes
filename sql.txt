@@ -1,0 +1,2049 @@
+
+open root user in system
+
+mysql -u root -p
+enter password: India@1205
+use sheshdb;
+---------------------------------------------------------------------
+how to exit from writing query from middle?
+CTRL+C
+------------------------------------------------------------------------
+SQL-Structured Query Language
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The main use of SQL is to work with databases.
+
+Is SQL case-sensitive?
+SQL is generally case-insensitive for keywords and identifiers. This means that keywords like SELECT, FROM, and 
+WHERE can be written in uppercase or lowercase letters interchangeably. Similarly, table and column names are often treated as case-insensitive, 
+depending on the database system being used.
+
+However, keep in mind that this behavior can vary depending on the specific database management system (DBMS) you are using. 
+Some DBMS, like MySQL, default to being case-insensitive for table and column names on Windows systems, but case-sensitive on Unix/Linux systems. 
+It's important to refer to the documentation of your specific DBMS to understand its case sensitivity behavior and configuration options.
+------------------------------------------------------------------------------------------------------------------------------------------------
+Different types of databases:
+
+Relational Databases (RDBMS):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+These databases store data in tables with rows and columns.
+They use Structured Query Language (SQL) for querying and managing data.
+Examples: MySQL, PostgreSQL, Oracle Database, Microsoft SQL Server.
+
+NoSQL Databases:
+~~~~~~~~~~~~~~~~
+
+NoSQL databases are designed to handle unstructured or semi-structured data and offer high scalability and flexibility.
+Types of NoSQL databases include:
+Document Databases (e.g., MongoDB, Couchbase): Store data in JSON-like documents.
+Key-Value Stores (e.g., Redis, Amazon DynamoDB): Store data as key-value pairs.
+Column-Family Stores (e.g., Apache Cassandra, HBase): Organize data into column families.
+Graph Databases (e.g., Neo4j, Amazon Neptune): Store and query data as graphs.
+
+
+Columnar Databases:
+~~~~~~~~~~~~~~~~~~~
+These databases store data in columns instead of rows, optimizing data storage and retrieval for analytical queries.
+Efficient for data warehousing and analytics workloads.
+Examples: Google Bigtable, Apache Cassandra.
+
+------------------------------------------------------------------------------------------------
+Types of Operations on Data:
+Accessing: just reading the data
+Manipulating: adding/updating/deleting 
+
+------------------------------------------------------------------------------------------------
+examples of operations:
+create db
+create tables
+alter table
+alter database
+read db
+read table
+update db
+update table
+delete db
+delete table
+
+---------------------------------------------------------------------------------
+how are SQL commands categorised into:
+data definition language(DDL)
+Data Manipulation language(DML)
+Data Control Language(DCL)
+Transaction Control Language(TCL)
+
+
+--------------------------------------------------------------------------------------
+DDL(DDL statements are used to create, modify, and delete database objects such as tables, indexes, views, and constraints):
+DDL does not deal with the actual data manipulation; it focuses on the database's structure and organization.
+
+Create
+Alter
+Drop
+Truncate
+Rename
+--------------------------------------------------------------------------
+DML:DML focuses on the actual manipulation and retrieval of data.
+Select
+Update
+Insert
+Delete
+
+--------------------------------------------------------------------
+DCL:(granting or revoking access to users)
+revoke
+grant
+
+------------------------------------------------------------------------
+TCL:(which will confirm or undo the recent transaction)
+commit
+rollback
+
+-----------------------------------------------------------------------------------------
+
+Datatypes:
+~~~~~~~~~~
+Numeric Data Types:
+~~~~~~~~~~~~~~~~~~~
+INTEGER: Whole numbers (e.g., 1, -5, 100).
+DECIMAL or NUMERIC: Fixed-point decimal numbers with specified precision and scale.
+FLOAT or DOUBLE: Approximate floating-point numbers.
+
+Character Data Types:
+~~~~~~~~~~~~~~~~~~~~~
+CHAR: Fixed-length character strings (e.g., 'Hello').
+VARCHAR: Variable-length character strings (e.g., 'OpenAI').
+TEXT: Variable-length character strings for larger amounts of text.
+
+Date and Time Data Types:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DATE: Represents a date (e.g., '2023-08-09').
+TIME: Represents a time of day (e.g., '14:30:00').
+TIMESTAMP or DATETIME: Represents a combination of date and time.
+Boolean Data Type:
+
+BOOLEAN or BOOL: 
+~~~~~~~~~~~~~~~~~~
+Represents true or false values.
+
+Binary Data Types:
+~~~~~~~~~~~~~~~~~~~~~~~~
+BINARY: Fixed-length binary data.
+VARBINARY: Variable-length binary data.
+BLOB: Binary Large Object for storing large binary data.
+Enumeration Data Type:
+
+ENUM: Represents a set of predefined values.
+Array Data Types:
+
+ARRAY: Represents an array of values.
+JSON Data Type:
+
+JSON: Stores JSON-formatted data.
+Geospatial Data Types:
+
+POINT, LINESTRING, POLYGON: Geospatial data types for representing points, lines, and polygons.
+GEOMETRY: A general geospatial data type.
+Row Data Types:
+
+ROW: Represents a row of values.
+Interval Data Type:
+
+INTERVAL: Represents a time span.
+XML Data Type:
+
+XML: Stores XML-formatted data.
+These are some of the common data types you might encounter in SQL databases. Each DBMS might have variations and additional data types beyond these. 
+It's important to choose the appropriate data type for each column based on the type of data it will store and the desired constraints or behaviors.
+
+-----------------------------------------------------------------------------------------------------------
+My_SQL:
+we have GUI and Command line interface.
+in GUI we just select what we want and the query is automatically generated.
+In cli we need to write the query on our own.
+
+---------------------------------------------------------
+Note: At the end of each query in My SQL you need to place a semi colon, if you dont keep semi colon and enter then query will continue in the next line.
+
+---------------------------------------------------------------------------------------
+what are constraints in mysql?
+constraints in MySQL are like rules for your database tables that ensure the data inside them is accurate, reliable, and organized. 
+They help prevent mistakes, such as entering the same information twice or leaving important information blank. 
+Constraints make sure that your data follows certain guidelines, making it easier to manage and work with your database effectively.
+
+Examples:
+
+Primary Key Constraint: 
+A primary key constraint ensures that each row in a table is uniquely identified by a specific column or combination of columns. 
+It prevents duplicate and null values in the designated columns.
+
+Foreign Key Constraint: 
+A foreign key constraint establishes a relationship between two tables, usually involving a primary key column in one table and a corresponding column (often called a foreign key) 
+in another table. 
+It ensures referential integrity, meaning that values in the foreign key column must correspond to values in the primary key column of the referenced table.
+
+Not Null Constraint: 
+This constraint ensures that a specified column cannot contain null values, meaning it must always have a value.
+
+Check Constraint: 
+A check constraint enforces a condition that the data in a column must satisfy. 
+For example, you can use a check constraint to ensure that a numeric column only contains positive values.
+
+Unique Constraint: 
+A unique constraint ensures that the values in a specified column or combination of columns are unique across all rows in a table. 
+Unlike a primary key, a unique constraint allows null values.
+
+Default Constraint: 
+A default constraint specifies a default value for a column when no value is explicitly provided during an insert operation.
+------------------------------------------------------------------------------------------
+Normalization:
+
+normalization is the process of effectively designing a database such that we can avoid data redundancy.
+
+so imagine that you have a table it has a primary key which means that every record has some unique identifier so there are no duplicate records as such but still you can 
+have certain list of columns where the same values are repeated for multiple records even that can be considered as example of data redundancy for example a table with 10 columns 
+1000 records and out of those 10 columns five columns would have repeated basically the same values getting repeated for for a lot of Records maybe 100 records or 200 records and 
+so on right even this can be considered as data redundancy if we had properly normalized that database then we could have avoided this kind of data redundancy 
+
+generally what happens is there are different levels of normalization that you can do on a database okay now each of this level will have certain rules as soon as the database 
+will satisfy this rule you can say that the database is satisfying that particular level of normalization
+
+
+we have the first level of normalization is called as first nominal form then the second level is called as a second normal form then we have third normal form fourth normal 
+form BC and fifth normal form six normal form Etc.
+
+
+even though we have so many different levels of normalization the golden standard of normalization is generally third normal form most of the companies 
+today try to normalize their database only until third normal form
+-------------------------------------------------------------------------------------------------
+create database:
+
+create database database_name;
+------------------------------------------------------------------
+how to display database?
+
+show databases;
+
+------------------------------------------------------------------------
+
+entering into database?
+
+use database_name;
+
+-------------------------------------------------------------------------------------
+Create Table without constraints:
+
+create table table_name(
+attribute1 data_type,
+attribute2 datatype,
+attribute3 datatype,
+-------
+-------
+);
+
+-------------------------------------------------------------------------------
+displaying table:(it shows all the tables that are present in the database)
+
+show tables;
+
+---------------------------------------------------------------------------------
+create a table with constraints
+
+CREATE TABLE new_table_name (  
+    col_name1 datatype constraint,  
+    col_name2 datatype constraint,  
+    col_name3 datatype constraint,  
+    .........  
+);  
+
+example:
+
+create table employee(
+    -> emp_id int not null,
+    -> emp_name varchar(16) not null,
+    -> emp_branch varchar(10) not null,
+    -> emp_age int check(emp_age>25),
+    -> emp_salary int check(emp_salary>25000),
+    -> UNIQUE(emp_id)
+    -> );
+	
+example2:
+create table sailors
+    ->  ( sid integer,
+    -> sname varchar(16),
+    -> s_age integer,
+    -> srating integer,
+    -> primary key(sid));
+	
+example3:
+ create table boats(bid integer not null,bname varchar(16),b_color varchar(10),primary key(bid));
+
+example4:
+ 
+ create table reserves
+    -> (
+    -> sid integer,
+    -> bid integer,
+    -> day date,
+    -> primary key(sid,bid),
+    -> foreign key(sid) references sailors(sid),
+    -> foreign key(bid) references boats(bid)
+    -> );
+	
+what happens when you give age<25?
+ INSERT into employee VALUES(102,'akash','cse',13,30000);
+ERROR 3819 (HY000): Check constraint 'employee_chk_1' is violated.
+
+what happens when you insert a duplicate value for a column which has primary key?
+
+INSERT into employee VALUES(102,'akash','cse',32,30000);
+ERROR 1062 (23000): Duplicate entry '102' for key 'employee.emp_id'
+
+---------------------------------------------------------------------------
+how to check the schema of a table?
+
+desc table_name;
+
+------------------------------------------------------------------------
+Insert:
+
+The INSERT statement in SQL is used to add new rows of data into a table. 
+
+Syntax:
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+insert into student(std_id,std_name,std_branch,std_class)
+    -> values(2,'som',ece,4),
+    -> values(3,'zameer',ece,4),
+    -> values(4,'prem',cse,2);
+
+Insert multplile rows:
+
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...),(value1, value2, value3, ...),(value1, value2, value3, ...);
+--------------------------------------------------------
+define foreign key constrain:
+
+create table table_name(
+name varchar not null,
+sid int not null,
+cid int not null,
+PRIMARY KEY(sid),
+FOREIGN KEY(cid) REFERENCE table_name2(cid)
+);
+
+-----------------------------------------------------------------------
+can we insert data into the table without mentioning the column names?
+YES,we can insert but we need to pass values for all columns.
+if we miss atleast one then the system will give error.
+
+example:
+insert into student values(4,'selina','cse',2),(5,'sheron','cse',2),(6,'manu','civil',3);
+-----------------------------------------------------------------------------
+How to delete a table from a database?
+
+DROP table table_name;
+
+-------------------------------------------------------------------------------
+Alter:
+
+The ALTER TABLE statement in SQL allows you to make structural changes to an existing table. 
+
+Here are some of the things you can do with the ALTER TABLE statement:
+
+Add Columns: You can add new columns to an existing table using the ADD COLUMN clause. This allows you to introduce new attributes or properties to your table.
+
+Drop Columns: The DROP COLUMN clause lets you remove columns from a table. This is useful when you no longer need certain attributes.
+
+Modify Columns: You can modify the data type, size, or properties of an existing column using the MODIFY COLUMN or CHANGE COLUMN clause.
+
+Add Constraints: You can define constraints on existing columns using the ADD CONSTRAINT clause. 
+This includes primary key, foreign key, unique, check, and other types of constraints.
+
+Drop Constraints: The DROP CONSTRAINT clause allows you to remove constraints that are no longer needed.
+
+Rename Table: You can change the name of an existing table using the RENAME TO clause.
+
+Rename Column: The CHANGE COLUMN clause can also be used to rename a column.
+
+Change Column Order: You can change the order of columns in a table using the MODIFY COLUMN clause with the AFTER keyword.
+
+Modify Table Storage: Depending on the database system, you might be able to modify storage-related settings, like specifying the storage engine or tablespace.
+
+Add Indexes: You can add indexes to columns using the ADD INDEX clause, which can improve query performance.
+
+Drop Indexes: The DROP INDEX clause allows you to remove existing indexes.
+
+Partitioning: Some database systems support partitioning, where you can use ALTER TABLE to manage partitions.
+
+
+------------------------------------------------------------------------------------------------------
+I already created a table, How can i add a new column to the existing table?
+
+Syntax:
+ALTER TABLE table_name
+ADD COLUMN column_name datatype constraints ;
+
+Examples:
+add new column into student table named college
+ALTER table student
+    -> ADD COLUMN College varchar(25) DEFAULT "CMR";
+	
+	
+example:
+add primary key constraint using alter
+
+alter dem
+add primary key(age);
+
+
+
+
+	
+example2:
+add a new column to transaction table which is time
+and add data to it from transactiondatetime column
+
+alter table transactions add column time datetime;
+
+update transactions 
+time=TIME(transactiondatetime);
+
+--------------------------------------------------------------------------------------
+how to delete an existing column from a table?
+alter table student
+    -> drop column College
+    -> ;
+-----------------------------------------------------------------------------------
+how to modify datatype of a column?
+alter table table_name
+    -> modify column column_name required_datatype;
+alter table student
+    -> modify column std_class float;
+---------------------------------------------------------------------------------------------
+How to drop multiple columns using alter
+
+alter table dem
+    -> drop demo1,
+    -> drop demo2;
+----------------------------------------------------------------------------
+how to change or add constraint to a column?
+alter table student
+    -> modify column std_class int NOT NULL;
+--------------------------------------------------------------------------------
+how to rename the table using alter?
+alter table dem
+    -> rename to soccer;
+	
+---------------------------------------------------------------------------------------------
+i already created a table and i didn't define a primary column, how can i do that?
+ alter table student
+    -> add constraint PRIMARY KEY(std_id);
+-----------------------------------------------------------------------------------------
+how to delete complete data from a table?
+drop table table_name;
+
+-------------------------------------------------
+how to delete table data but not the table?
+truncate table table_name;
+
+---------------------------------------------------------------------------------------
+how to change the values of existing records?
+
+The UPDATE statement changes existing data in one or more rows in a table. The following illustrates the syntax of the UPDATE statement:
+
+
+UPDATE table
+SET 
+    column1 = new_value1,
+    column2 = new_value2,
+    ...
+WHERE
+    condition;
+	
+	
+Example:
+
+ update student
+    -> set
+    -> marks=34
+    -> where std_id=2;
+	
+how to update a result column with "pass" when marks>35?
+update student
+    -> set
+    -> result="PASS" WHERE marks>35;
+	
+how to update a result column with "pass" when marks>35 else return "fail"?
+ update student
+    -> SET result=CASE
+    -> WHEN marks>35 THEN "PASS"
+    -> ELSE "FAIL"
+    -> END; 
+	
+update table worker with joining date month as 5 where department is HR
+
+UPDATE worker
+SET joining_date = DATE_FORMAT(joining_date, '%Y-05-%d')
+WHERE department = 'HR';
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+How to delete specific rows from a table based on a condition?
+
+delete from student
+    -> where std_name='manu';
+
+delete from student
+    -> where std_id>3;
+	
+-----------------------------------------------------------------------------------------------------------------------
+How to create a copy of an existing table with same data:
+
+example:
+CREATE TABLE new_table AS
+SELECT * FROM existing_table;
+
+or 
+CREATE TABLE newtable LIKE existingtable;
+
+How to only create a copy of the structure but not the data:
+CREATE TABLE new_table AS
+SELECT * FROM existing_table WHERE 1 = 0;
+
+---------------------------------------------------------------------------
+Data Retreival commands:
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+SELECT: 
+This is the most common command used to retrieve data. 
+It allows you to specify the columns you want to retrieve and the table(s) you want to retrieve them from.
+
+Syntax:
+SELECT column1, column2 FROM table_name;
+
+example:
+ select std_id,std_class from student;
+ 
+select all the columns from a table:
+
+select * from student;
+-------------------------------------------------------------------------------------------------
+WHERE: 
+This command is used to filter data based on specified conditions.
+where condition simple and compound.
+simple condition can have relational operators(<,>,>=,<=,=)
+compound condition can have logical operators(AND,OR,NOT)
+
+Syntax:
+SELECT column1, column2 FROM table_name WHERE condition;
+
+examples with simple where:
+
+example1:
+select * from student where std_class=3;
+
+example2:
+select * from student where marks>25;
+
+
+examples with compound where:
+
+example1:
+select * from student where marks>25 and marks<50;
+
+example2:
+select * from student where marks=25 or marks=50;
+
+example3:
+select * from student where std_class>=3 and marks>30;
+
+example4:
+ select * from student where NOT std_class>3;
+
+example5:
+select * from student where NOT std_class>3 and not marks>30;
+
+example6:
+query to find students with even id
+ select std_name from student where std_id%2=0;
+
+example7:
+query to find students whose name starts with a:
+select * from student
+    -> where
+    -> std_name like "a%"
+    -> ;
+	
+example *
+query to find studnets whose name has "ero"
+ select * from student
+    -> where std_name like "%ero%";
+	
+------------------------------------------------------------------------------------------------
+LIMIT: Limits the number of rows returned by the query.
+
+Syntax:
+SELECT column1, column2 FROM table_name LIMIT 10;
+
+example:
+select * from student limit 2;
+
+
+OFFSET:
+In SQL, the OFFSET clause is used along with the LIMIT clause to control the number of rows returned by a query and to specify how many rows to skip before starting to return rows. 
+It is often used for pagination or to retrieve a subset of rows from a result set.
+
+Syntax:
+
+SELECT column1, column2, ...
+FROM table_name
+LIMIT number_of_rows_to_return OFFSET number_of_rows_to_skip;
+
+example:
+query to find the second highest marks from student table
+-->select * from student order by marks DESC limit 1 offset 1;
+
+----------------------------------------------------------------------------------------------
+DISTINCT: Used to retrieve distinct values from a column.
+
+Syntax:
+SELECT DISTINCT column_name FROM table_name;
+
+Example:
+select distinct std_branch from student;
+
+how can i get various distinct combinations of two columns?
+
+select distinct std_branch,std_class from student;
+
+----------------------------------------------------------------------------------------------
+IN: Used to specify multiple values in a WHERE clause.
+
+Syntax:
+SELECT column1 FROM table_name WHERE column2 IN (value1, value2, value3);
+
+Example:
+ select * from student where std_branch IN ('ece','civil');
+ 
+Example2:
+select * from student where std_class IN (2,3);
+ 
+-------------------------------------------------------------------------------------------
+BETWEEN: Retrieves data within a specified range.
+
+Syntax:
+SELECT column1 FROM table_name WHERE column2 BETWEEN value1 AND value2;
+
+Example:
+select * from student where marks between 50 and 70;
+
+----------------------------------------------------------------------------------------------
+ORDER BY:
+Sorts the result set in ascending or descending order based on one or more columns.
+By Default it is in ascending order.
+Syntax:
+SELECT column1, column2 FROM table_name ORDER BY column1 ASC;
+
+Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending and DEPARTMENT Descending?
+Select * from Worker order by FIRST_NAME asc,DEPARTMENT desc;
+
+
+Example:
+ select * from student order by marks;
+ 
+example for ascending order:
+select * from student order by std_name;
+ 
+Example for descending order:
+select * from student order by marks DESC;
+
+I want to get the record of  two persons whose marks>35 using order by?
+select * from student where marks>35 ORDER BY marks DESC LIMIT 2;
+
+
+------------------------------------------------------------------------------------------
+LIKE: Used to search for a specified pattern in a column.
+Syntax:
+SELECT column1 FROM table_name WHERE column2 LIKE 'pattern%';
+
+example1:
+ select * from student WHERE std_name LIKE "s%";  (It gives all the rows where name in std_name starts with s)
+
+example2:
+select * from student WHERE std_name LIKE "%n";    (It gives all the rows where name in std_name ends with n)
+
+
+example3:
+select * from student WHERE std_name LIKE "%er%"; (It gives all the rows where name in std_name has "er" in it)
+
+example4:
+Write an SQL query to print details of the Workers whose FIRST_NAME contains ‘a’?
+Select * from Worker where FIRST_NAME like '%a%';
+
+example 5:
+Write an SQL query to print details of the Workers whose FIRST_NAME ends with ‘h’ and contains six alphabets.
+Select * from Worker where FIRST_NAME like '_____h';
+
+
+--------------------------------------------------------------------------------------
+year:
+
+In SQL, the YEAR function is often used to extract the year part from a date or timestamp.
+
+SELECT YEAR(your_date_column) AS YearValue
+FROM your_table;
+
+example:
+ select * from worker where year(joining_date)=2021;
+ 
+--------------------------------------------------------------------------------------------
+quarter:
+you can use the QUARTER function to extract the quarter from the transaction date. 
+
+example1:
+find the spend made in each quarter:
+select quarter(transactiondate) as quat,sum(spend) from transactions group by quat;
+----------------------------------------------------------------------------------------------
+Month:
+In SQL, you can use the MONTH function to extract the month from a date or timestamp.
+SELECT MONTH(your_date_column) AS MonthValue
+FROM your_table;
+
+Example:
+ select * from worker where year(joining_date)=2021 and month(joining_date)=2;
+ 
+example2:
+find the total amount spent in each month?
+ select month(transactiondate),sum(spend) from transactions group by month(transactiondate);
+ 
+example3:
+Write a query to find the total spend for each month in the year 2022.
+select month(transactiondate),sum(spend) from transactions where year(transactiondate)=2022 group by month(transactiondate);
+
+example 4:
+transactions made in jan
+select month(transactiondate),sum(spend) from transactions where month(transactiondate)=1 group by transactiondate;
+
+example5:
+total amount spend in each month of each year:
+select year(transactiondate) as year,month(transactiondate) as month,sum(spend) as total_spend from transactions
+    -> group by year(transactiondate),month(transactiondate) order by year,month ;
+-----------------------------------------------------------------------------------------
+Get current date and time:
+
+select now();
+
+--------------------------------------------------------------------------------------
+dayofweek():
+The DAYOFWEEK function returns the index of the day in a week (1 for Sunday, 2 for Monday, ..., 7 for Saturday). 
+
+example:
+find the transactions made on saturday and sunday
+select * from transactions where dayofweek(transactiondate) in (1,7);
+
+find transactions made on weekdays
+select * from transactions where dayofweek(transactiondate) not in (1,7);
+
+---------------------------------------------------------------------------------------------
+
+datediff():
+SELECT 
+    first_name, 
+    DATEDIFF(CURDATE(), joining_date) AS tenor 
+FROM 
+    worker
+WHERE 
+    DATEDIFF(CURDATE(), joining_date) = (
+        SELECT MAX(DATEDIFF(CURDATE(), joining_date))
+        FROM worker
+    );
+----------------------------------------------------------
+interval:
+
+ SELECT customerid
+    -> FROM transactions
+    -> WHERE transactiondate > CURDATE() - INTERVAL 10 MONTH
+    -> group by customerid
+    -> having max(transactiondate)>curdate() - interval 10 month;
+---------------------------------------------------------------------------------------
+date_sub:
+DATE_SUB is a date and time function used in SQL to subtract a specified time interval from a date. 
+The typical syntax for DATE_SUB is as follows:
+DATE_SUB(date, INTERVAL expr unit)
+
+date: The date or datetime value from which the subtraction will be performed.
+expr: The value to subtract from the date. It can be an integer or an expression.
+unit: The unit of time to subtract (e.g., DAY, MONTH, YEAR).
+
+example1:
+retrieve all the transactions made in the last 7 months.
+select * from transactions where transactiondatetime >(select date_sub(now(),interval 7 month));
+
+example2:
+retrieve transactions of the last 7 days.
+ select * from transactions where transactiondate>(select date_sub(now(), interval 9 day));
+ 
+example3:
+retrieve all transactions made in last 1 year
+select * from transactions where transactiondate>(select date_sub(now(), interval 1 year));
+---------------------------------------------------------------------------------------
+how to find duplicates in a tables:
+
+example:
+SELECT WORKER_TITLE, AFFECTED_FROM, COUNT(*)
+FROM Title
+GROUP BY WORKER_TITLE, AFFECTED_FROM
+HAVING COUNT(*) > 1;
+
+---------------------------------------------------------------------------------------------
+is null:
+IS NULL is a SQL condition used to check for the absence of a value in a particular column. 
+It is used in the WHERE clause of a SQL query to filter rows where a specified column has a NULL value.
+
+example:
+retrieve transactions where customersegment is null
+
+select * from customers where customersegment is null;
+------------------------------------------------------------------------------------------------------------
+Aggregate Functions:
+
+Aggregate functions in SQL are used to perform calculations on a set of values and return a single value as a result. 
+These functions are often used with the SELECT statement, particularly when using the GROUP BY clause to group rows based on certain columns. 
+
+-------------------------------------------------------------------------------------- 
+COUNT(): Counts the number of rows that match a specified condition.
+
+Syntax:
+SELECT COUNT(*) FROM table_name;
+SELECT COUNT(column_name) FROM table_name WHERE condition;
+
+example1:
+select count(std_id) from student;
+
+example2:
+count no. of students in each branch
+select std_branch,count(std_id) from student group by std_branch;
+
+Count(*):
+COUNT(*) is an aggregate function used to count the number of rows in a table or the number of rows that match a certain condition. 
+It's often used in combination with the SELECT statement and the GROUP BY clause to perform counts on specific groups of data.
+
+example:
+select count(*) from student;
+
+example2:
+select count(*) from student where std_branch='ece';
+
+example3:
+select count(*) from student where marks>56;
+
+example4:
+count the number of duplicates in a city column
+select count(city)-count(distinct city) as difference from station;
+----------------------------------------------------------------------------------------------------
+
+SUM(): Calculates the sum of the values in a column.
+
+Syntax:
+SELECT SUM(column_name) FROM table_name;
+
+example1:
+select sum(marks) from student;
+
+example2:
+How can you find the percentage of total spend contributed by each customer?
+
+ SELECT
+    ->     CustomerID,
+    ->     SUM(Spend) AS TotalSpend,
+    ->     (SUM(Spend) / (SELECT SUM(Spend) FROM transactions)) * 100 AS SpendPercentage
+    -> FROM
+    ->     transactions
+    -> GROUP BY
+    ->     CustomerID;
+
+example3:
+How would you find the percentage of total spend contributed by each product category?
+
+SELECT
+    ->     productID,
+    ->     SUM(Spend) AS TotalSpend,
+    ->     (SUM(Spend) / (SELECT SUM(Spend) FROM transactions)) * 100 AS SpendPercentage
+    -> from transactions
+    -> group by
+    -> productid;
+	
+----------------------------------------------------------------------------------------------------
+AVG(): Calculates the average of the values in a column.
+
+Syntax:
+SELECT AVG(column_name) FROM table_name;
+
+example1:
+select avg(marks) from student;
+
+example2:
+how to find the avg marks of male and female?
+select Gender,avg(marks) from student group by Gender;
+
+example3:
+how to find the avg marks of each branch?
+ select std_branch,avg(marks) from student group by std_branch;
+ 
+  
+------------------------------------------------------------------------------------------------------
+
+MIN(): Returns the minimum value from a column.
+Sytax:
+SELECT MIN(column_name) FROM table_name;
+
+example1:
+select min(marks) from student;
+----------------------------------------------------------------------------------------------------
+MAX(): Returns the maximum value from a column.
+
+Syntax:
+SELECT MAX(column_name) FROM table_name;
+
+Example:
+select max(marks) from student;
+
+example2:
+find min,max spend for each customer?
+
+ select customerid,min(spend) as minimum_spend,max(spend) as maximum_spend from transactions
+    -> group by customerid;
+-----------------------------------------------------------------------------------------------------
+The CEILING() function returns the smallest integer value that is not smaller than X. 
+Select CEILING(3.46); returns 4
+
+The FLOOR() function returns the largest integer value that is not greater than X. 
+Select FLOOR(-6.43); returns -7
+
+ROUND() function rounds the number up or down depends upon the second argument D and number itself(digit after D decimal places >=5 or not).  
+
+select round(3.45) returns 3
+select round(3.55) returns 4
+select round(3.45,1) returns 3.5
+select round (3.452) returns 3.45
+
+Query the following two values from the STATION table:
+
+The sum of all values in LAT_N rounded to a scale of  decimal places.
+The sum of all values in LONG_W rounded to a scale of  decimal places.
+
+select round(sum(LAT_N),2),round(sum(LONG_W),2) from station;
+
+--------------------------------------------------------------------------------------------------------
+mod:
+This is like % in python.
+In SQL, the MOD function (or % operator) is used to calculate the remainder of a division operation. 
+
+example1:
+Write an SQL query to show only odd rows from a table.
+
+SELECT * FROM Worker WHERE MOD (WORKER_ID, 2) <> 0;
+
+example2:
+
+Write an SQL query to show only even rows from a table.
+
+SELECT * FROM Worker WHERE MOD (WORKER_ID, 2) = 0;
+
+
+example3:
+show transactions whose spend is in even numbers:
+
+select * from transactions
+    -> where mod(spend,2)=0;
+---------------------------------------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------------------------------------
+GROUP BY:
+The GROUP BY clause is used to group rows that have the same values in specified columns into summary rows. 
+This is commonly used in combination with aggregate functions like SUM, COUNT, AVG, etc., to perform calculations on the grouped data.
+Syntax:
+SELECT column1, column2, aggregate_function(column)
+FROM table
+GROUP BY column1, column2;
+
+how to find the avg marks for each branch?
+select std_branch,avg(marks) from student group by std_branch;
+
+how to get the total marks for each branch?
+select std_branch,avg(marks) from student group by std_branch;
+
+examplel:
+select std_id,count(*) from student group by std_branch;
+
+example2:
+select std_branch,avg(marks) as average_marks from student group by std_branch;
+
+example of multiple group bys;
+
+Write a query to display the total spend for each combination of region and customer segment?
+
+select c.region,c.customersegment,sum(t.spend) as total_spend
+    -> from customers c
+    -> join transactions t
+    -> on c.customerid=t.customerid
+    -> group by c.region,c.customersegment;
+
+
+example:
+
+select day(transactiondate) as day,count(*),avg(spend) from transactions
+    -> group by day(transactiondate)
+    -> order by day;
+	
+Find the Day with the Highest Total Sales:
+
+SELECT sale_date, SUM(amount) AS total_sales
+FROM sales
+GROUP BY sale_date
+ORDER BY total_sales DESC
+LIMIT 1;
+
+--------------------------------------------------------------------------------------------------------
+Having:
+The HAVING clause in SQL is used in combination with the GROUP BY clause to filter the results of a query based on aggregate functions. 
+It allows you to apply conditions to the groups created by the GROUP BY clause. 
+The HAVING clause is often used to filter group-level data after aggregations have been performed.
+
+Syntax:
+SELECT column1, column2, aggregate_function(column)
+FROM table
+GROUP BY column1, column2
+HAVING condition;
+
+
+example:
+display the avg of those groups whose average is greater than 50?
+select std_branch,avg(marks) from student group by std_branch having avg(marks)>50;
+
+example2:
+display the branches and there count whose count is greater than 1
+select std_branch,count(std_id) from student group by std_branch having count(std_id)>1;
+
+example3:
+
+select std_branch,min(marks) from student group by std_branch having min(marks)<35;
+
+
+------------------------------------------------------------------------------------------------------ 
+
+Group concat:
+MySQL GROUP_CONCAT() function returns a string with concatenated non-NULL value from a group. 
+It is used to concatenate and aggregate values from multiple rows within a specific column into a single string. 
+It's particularly useful for combining and displaying related data in a compact format.
+
+The primary purpose of the GROUP_CONCAT() function is to concatenate values from multiple rows into a single string.
+You can use GROUP_CONCAT() to aggregate data based on a certain column or attribute.
+The GROUP_CONCAT() can use to create a list of tags for each record.
+When working with hierarchical data structures, you can use GROUP_CONCAT() to show parent-child relationships in a readable format.
+In applications, you can use GROUP_CONCAT() to display a user's preferences, settings, or selected options in a user-friendly format.
+GROUP_CONCAT() is useful for displaying data in applications, reports, or user interfaces where a single field needs to show multiple related values.
+The function allows you to define custom separators (other than commas) and order for concatenated values, giving you flexibility in how data is presented.
+
+example:names of people in each different branch
+select group_concat(std_name),std_branch from student group by std_branch;
+
+example:
+ select std_branch,count(std_id),group_concat(distinct std_name order by std_name) from student group by std_branch;
+ 
+example2:
+SELECT
+    sell_date,
+    COUNT(DISTINCT product) AS num_sold,
+    GROUP_CONCAT(DISTINCT product ORDER BY product ASC) AS products
+FROM
+    Activities
+GROUP BY
+    sell_date
+ORDER BY
+    sell_date;
+	
+	
+-------------------------------------------------------------------------------------------------------
+Implicit Comma seperated Joins:
+Implicit comma-separated joins are an older style of writing SQL joins, where you list multiple table names separated by commas in the FROM clause, 
+and the conditions to link the tables are specified in the WHERE clause. 
+While this style is still valid, it's considered less readable and less explicit compared to the modern explicit JOIN syntax.
+
+Syntax:
+SELECT column_names
+FROM table1, table2
+WHERE table1.column_name = table2.column_name
+
+
+How to join two tables sailors and reserves?
+select * from sailors,reserves where sailors.sid=reserves.sid;
+
+how to find the name,bid,reserved_date data?
+select sname,bid,day from sailors,reserves where sailors.sid=reserves.sid;
+
+how to find names of person who reserved boat 209?
+select sname from sailors,reserves where sailors.sid=reserves.sid and bid=209;
+
+find the boats which reserved on 15 aug?
+select bname from boats,reserves where boats.bid=reserves.bid and day=20230815; 
+
+how to find name of the person who reserved red boat?
+select sname from sailors,reserves,boats where sailors.sid=reserves.sid and reserves.bid=boats.bid and b_color='gold';
+
+Find name of the person who reserved boat 204?
+select sname from sailors,reserves where sailors.sid=reserves.sid and bid=204;
+
+Find names of sailors who reserved boats atleast once?
+select distinct sname from sailors,reserves where sailors.sid=reserves.sid;
+							or
+select distinct sname from sailors join reserves on  sailors.sid=reserves.sid;
+
+Retrieve the names of sailors who have reserved a boat of a specific color.
+select sname from sailors
+    -> join reserves on sailors.sid=reserves.sid
+    -> join boats on reserves.bid=boats.bid
+    -> where b_color="black";
+	
+Get the names of sailors who have reserved boats with ratings greater than 3.
+select distinct sname from sailors
+    -> join reserves on sailors.sid=reserves.sid
+    -> join boat on reserves.bid=boats.bid
+    -> where sailors.srating>3;
+	
+retrieve name of the sailors who haven't reserved any boats
+select sailors.sid,sname from sailors
+    -> left join reserves on sailors.sid=reserves.sid
+    -> where reserves.sid IS NULL;
+	
+Retrieve the boat names and colors that have been reserved by sailors.
+select distinct bname,b_color from boats
+    -> join reserves on boats.bid=reserves.bid
+    -> join sailors on sailors.sid=reserves.sid
+    -> ;
+
+------------------------------------------------------------------------
+what is the use of splitting data into different tables?
+Use of Joins:
+  data is splitted into different tables in order to avoid duplicates, eliminates efforts to update data in multiple places,consistent data storage,fast data retreival,scalability,
+  easy to maintain.
+---------------------------------------------------------------------------------------------------
+JOINS:
+Joins in SQL are used to combine rows from two or more tables based on a related column between them. 
+This allows you to retrieve data from multiple tables simultaneously, creating a more comprehensive dataset. 
+
+
+INNER JOIN:
+~~~~~~~~~~
+Retrieves rows that have matching values in both tables being joined.
+Excludes rows that don't have a match in either of the tables.
+
+Syntax:
+SELECT columns
+FROM table1
+INNER JOIN table2 ON table1.column = table2.column;
+
+example:
+select * from sailors join reserves on sailors.sid=reserves.sid;
+
+example2:
+Retrieve the names of sailors who have reserved boats of both red and blue colors.
+
+SELECT DISTINCT sname
+FROM sailors
+JOIN reserves ON sailors.sid = reserves.sid
+JOIN boats ON reserves.bid = boats.bid
+WHERE boats.bcolor IN ('red', 'blue')
+GROUP BY sailors.sname
+HAVING COUNT(DISTINCT boats.bcolor) = 2;
+
+example 3:
+
+
+SELECT
+    customers.CustomerID,
+    
+    SUM(transactions.spend) AS TotalSpend
+FROM
+    customers
+JOIN
+    transactions ON customers.CustomerID = transactions.CustomerID
+WHERE
+    customers.CustomerSegment = 'early eaters'
+GROUP BY
+    customers.CustomerID;
+
+
+
+LEFT JOIN (or LEFT OUTER JOIN):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Retrieves all rows from the left table and the matching rows from the right table.
+If there's no match in the right table, NULL values are included for the columns from the right table.
+
+Syntax:
+SELECT columns
+FROM table1
+LEFT JOIN table2 ON table1.column = table2.column;
+
+example:
+select * from sailors left join reserves on sailors.sid=reserves.sid;
+
+
+How to retrieve the no. of reservations made by each sailor?(for the below query left join shows all values in left(sailors table) and all matching values in right table 
+non matching values in right table are null. we can use left join when we want all reservations made by sailors even if they are 0.
+select sname,count(reserves.sid) from sailors  left join reserves on sailors.sid=reserves.sid group by sname;
+
+retrieve the no. of reservations made by sailor, they should make atleast one reservation:
+select sname,count(reserves.sid) from sailors join reserves on sailors.sid=reserves.sid group by sname;
+
+example:
+find the customers with there all transactions and check if any customer is not having any trasaction?
+
+select c.*,group_concat(t.transactionid) as all_transactions
+    -> from customers c
+    -> left join transactions t
+    -> on c.customerid=t.customerid
+    -> group by c.customerid
+    -> having all_transactions is NULL;
+
+
+RIGHT JOIN (or RIGHT OUTER JOIN):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Similar to a left join, but retrieves all rows from the right table and the matching rows from the left table.
+If there's no match in the left table, NULL values are included for the columns from the left table.
+
+Syntax:
+SELECT columns
+FROM table1
+RIGHT JOIN table2 ON table1.column = table2.column;
+
+
+
+SELECT columns
+FROM table1
+RIGHT JOIN table2 ON table1.column = table2.column;
+
+
+FULL JOIN (or FULL OUTER JOIN):
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Retrieves all rows from both tables and matches rows where they have matching values.
+If there's no match in either table, NULL values are included for the columns from the missing table.
+
+Syntax:
+SELECT columns
+FROM table1
+FULL JOIN table2 ON table1.column = table2.column;
+
+example:
+select * from sailors right join reserves on sailors.sid=reserves.sid;
+
+
+Cross Join:
+~~~~~~~~~~~
+A cross join, also known as a Cartesian join or a cross product, is a type of join operation in relational databases. 
+Unlike other join types (e.g., INNER JOIN, LEFT JOIN, RIGHT JOIN), a cross join does not require a specific condition or common column to combine rows from two or more tables. 
+Instead, it produces the Cartesian product of all rows from each table involved in the join.
+
+In simple words, cross join means joining each row of one table to each row of another table
+if there are 10 rows in Table 1 and Table2 
+Cross join will have 100 rows.
+
+Syntax:
+select column names from table1 cross join table2;
+
+
+SELF JOIN:
+~~~~~~~~~~
+
+Used to join a table with itself.
+Often involves aliasing the table with different names to differentiate between the two instances.
+
+SELECT columns
+FROM table1 AS t1
+JOIN table1 AS t2 ON t1.column = t2.column;
+
+example:
+find the emp_name and there manager_names(left join shows employees who also dont have managers)
+
+ select e1.emp_name,e2.emp_name from employee e1
+    -> left join employee e2 on e1.manager_id=e2.emp_id;
+	
+example:
+ind the emp_name and there manager_names with minimum salary
+select e1.emp_name,e2.emp_name as manager_name from employee e1
+    -> left join employee e2 on e1.manager_id=e2.emp_id
+    -> where e1.emp_salary=(select min(emp_salary) from employee);
+
+example:
+find the customers who have same birthdate, with and without duplicates?
+
+SELECT c1.CustomerID,c2.CustomerID AS SharedCustomerid
+    -> FROM customers c1
+    -> JOIN customers c2 ON c1.Birthdate = c2.Birthdate AND c1.CustomerID <> c2.CustomerID;
+
+ SELECT c1.CustomerID,c2.CustomerID AS SharedCustomerid
+    FROM customers c1
+    JOIN customers c2 ON c1.Birthdate = c2.Birthdate AND c1.CustomerID < c2.CustomerID;
+	
+
+example:
+find the customers that have the same region
+
+ SELECT c1.CustomerID,c2.CustomerID AS SharedCustomerid
+    -> FROM customers c1
+    -> JOIN customers c2 ON c1.region = c2.region AND c1.CustomerID < c2.CustomerID;
+
+example1:
+select e1.ename as emp,e2.ename as mng
+from employee2 e1 
+left join employee2 e2 
+on e1.e_mg_id=e2.eid;
+
+example2:
+select ename from employee2
+    -> join (select avg(e_sal)  AVG_SALARY from employee2) e2
+    -> ON e_sal>AVG_SALARY; 
+
+CROSS JOIN:
+Generates a Cartesian product of rows from both tables, resulting in a combination of all possible rows.
+Syntax:
+SELECT columns
+FROM table1
+CROSS JOIN table2;
+
+
+example:
+find employees who have higher salaries than there managers?
+
+select e1.emp_name,e2.emp_name as manager_name from employee e1
+    -> left join employee e2 on e1.manager_id=e2.emp_id
+    -> where e1.emp_salary>e2.emp_salary;
+	
+
+example:
+find the total number of subordinates under each manager:
+
+select e2.emp_name,count(*) as total_subordinates from employee e1
+    -> left join employee e2 on e1.manager_id=e2.emp_id
+    -> group by e2.emp_name;
+	
+
+example: 
+find employees with no manager
+SELECT e.emp_name AS employee
+FROM employees e
+LEFT JOIN employees m ON e.manager_id = m.emp_id
+WHERE m.emp_id IS NULL;
+
+--------------------------------------------------------------------------------------------------------------
+Subqueries:
+In SQL, a subquery (also known as an inner query or nested query) is a query that is embedded within another query. 
+Subqueries are used to retrieve data that will be used in the main query's criteria or to perform calculations within the main query. 
+They allow you to break down complex tasks into smaller, more manageable components. 
+
+
+Syntax:
+SELECT column_name(s)
+FROM table_name
+WHERE column_name operator (SELECT column_name(s) FROM table_name WHERE condition);
+
+we can write subqueries in two ways:
+
+example1:
+select * from student
+    -> where marks>(select avg(marks) from student);
+
+example2:
+ select s1.std_name,s1.std_branch from student s1
+    -> join (select avg(marks) as avg from student) s2
+    -> on s1.marks>s2.avg;
+
+
+In this syntax:
+
+The subquery is enclosed in parentheses and placed within the parentheses of the main query's condition.
+The subquery retrieves data to be compared or used in the main query's condition.
+
+example:
+Retrieve the student records whose marks are greater than avg marks of students
+->select * from student where marks>(select avg(marks) from student);
+
+
+Types:
+Subqueries can be classified into different types based on their use and where they appear in the main query. Here are the main types of subqueries:
+
+Scalar Subquery:
+
+A subquery that returns a single value (single row, single column).
+Used as a calculated value within the main query, such as in SELECT or FROM clauses.
+Example: Retrieving customer orders along with the maximum order amount across all orders.
+
+SELECT order_id, order_amount,
+       (SELECT MAX(order_amount) FROM orders) AS max_order_amount
+FROM orders;
+
+example:
+get all the records of employees whose salary is greater than average salary of Branch2
+
+select * from employee
+    -> where emp_salary>(select avg(emp_salary) from employee where emp_branch='Branch2');
+
+
+example:
+Retrieve employees who have the same salary as the employee with the highest salary in the manager designation.
+
+
+select e.emp_id,s.salary,e.designation from emp e
+    -> join sal
+    -> s on e.emp_id=s.emp_id and e.last_updated_date=s.last_updated_date
+    -> where s.salary=(select max(salary) from sal s join emp e on s.emp_id=e.emp_id where e.designation='manager') and e.designation!='manager';
+
+Single-Row Subquery:
+
+A subquery that returns a single value (single row).
+Typically used in comparison operators (e.g., =, >, <) in the main query's WHERE or HAVING clause.
+Example: Retrieving customers with orders exceeding the average order amount.
+
+SELECT customer_name
+FROM customers
+WHERE order_amount > (SELECT AVG(order_amount) FROM orders);
+
+
+Multiple-Row Subquery:
+
+A subquery that returns multiple rows,multiple columns or multiple rows,one column.
+Usually used with the IN or ANY/ALL operators to compare a value with a list of values returned by the subquery.
+Example: Selecting products that were ordered by customers who have placed recent orders.
+SELECT product_name
+FROM products
+WHERE product_id IN (SELECT product_id FROM orders WHERE order_date >= '2023-01-01');
+
+
+
+example2:
+get highest scoring student name,dept,marks from each department
+select std_name,std_branch,marks from student
+    -> where (std_branch,marks) in (select std_branch,max(marks) from student group by std_branch);
+	
+example3:
+i have two tables 1.student(id,name,branch,marks),br_building(branch,building) find the branch doesn't have any student?
+-select std_branch from br_building
+    -> where (std_branch) not in (select distinct std_branch from student);
+	
+example4:
+display customer information with there latest transaction details
+
+select distinct c.*,transactiondatetime from transactions t1
+    -> join customers c on c.customerid=t1.customerid
+    -> where t1.transactiondatetime=(select max(t2.transactiondatetime) from transactions t2 where t1.customerid=t2.customerid);
+	
+example5:
+Find employees who have received a salary decrease.
+
+ select curr.emp_id,curr.salary,prev.salary from sal as curr
+    -> join sal as prev on curr.emp_id=prev.emp_id
+    -> where curr.last_updated_date>prev.last_updated_date
+    -> and curr.salary<prev.salary;
+	
+	
+
+Co-related Subquery:
+ It is executed once for each row processed by the outer query and often uses values from the outer query in its WHERE clause.
+The inner subquery depends on values from the outer query.
+It is executed once for each row processed by the outer query.
+
+The inner query is executed for each row in the database
+
+A subquery that references columns from the outer query, enabling comparisons between the inner and outer queries.
+Typically used when you need to compare values from the main query in the subquery.
+
+
+example:
+find the 3rd highest salary from the worker table?
+
+select salary from worker
+    -> w1 where 2=(select count(distinct w2.salary) from worker w2
+    -> where w1.salary<w2.salary);
+	
+so what happens is we have worker table ,the sub query will iterate over each row of the worker table w1,
+lets say we are now on first row of worker table w1, now subquery will find the count of rows in w2 whose salary is greater than salary in the first row of worker table w1.
+for that to be the third highest value only two rows should have greater values.
+in this way it will check for each row and print the value which has 2 other values greater than it.
+ 
+
+Example: Finding employees whose salaries exceed the average salary in their respective departments.
+
+
+select * from student s1
+    -> where marks>(select avg(marks) from student s2 where s2.std_branch=s1.std_branch);
+
+example2:
+Find the customers whose average spent is more than the average spend in their age band.
+
+SELECT t.CustomerID, c.AgeBand, avg(t.Spend) as average
+FROM transactions t
+JOIN customers c ON t.CustomerID = c.CustomerID
+group by c.customerid
+having average > (
+    SELECT AVG(t2.Spend)
+    FROM transactions t2
+    JOIN customers c2 ON t2.CustomerID = c2.CustomerID
+    WHERE c2.AgeBand = c.AgeBand
+)
+
+example3:
+Find the transactions of the customers who spend more than the average spend in their age band.
+
+SELECT t.CustomerID, c.AgeBand, t.Spend
+FROM transactions t
+JOIN customers c ON t.CustomerID = c.CustomerID
+WHERE t.Spend > (
+    SELECT AVG(t2.Spend)
+    FROM transactions t2
+    JOIN customers c2 ON t2.CustomerID = c2.CustomerID
+    WHERE c2.AgeBand = c.AgeBand
+)
+
+-------------------------------------------------------------------------------------------------------------------------
+Concat two columns in table?
+
+select concat(name,age) from employee;
+
+select concat(emp_name,' ',emp_branch) as name_branch from employee;
+
+---------------------------------------------------------------------------------------------------------------------------
+substring:
+
+
+In SQL, you can use the SUBSTRING function to extract a substring from a string. 
+The SUBSTRING function takes three arguments: the string expression, the starting position, and the length of the substring.
+
+Syntax: SUBSTRING(string_expression, start, length)
+
+string_expression: The original string from which you want to extract the substring.
+start: The starting position of the substring within the original string. The position is 1-based.
+length: The length of the substring to extract.
+
+Write an SQL query to print the first three characters of  FIRST_NAME from the Worker table.
+Ans.
+
+Select substring(FIRST_NAME,1,3) from Worker;
+---------------------------------------------------------------------------------------------------------------------------
+INSTR:
+The INSTR function returns the starting position of the first occurrence of a substring in a string.
+INSTR(string, substring [, start_position [, occurrence]])
+if the substring is not found in the string, then output is 0.
+
+SELECT INSTR(FIRST_NAME, BINARY'a') FROM Worker WHERE FIRST_NAME = 'Amitabh';
+The BINARY keyword is used to indicate a case-sensitive search.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
+Trim:
+remove spaces at the end or start of the string.
+
+example:
+select TRIM("         you are the best      ") as trimmedstring;
+
+example:
+ select lTRIM("         you are the best      ") as trimmedstring;
+ 
+example:
+  select RTRIM("         you are the best      ") as trimmedstring;
+--------------------------------------------------------------------------------------------------------------------------
+substring:
+slicing values of a given column, here index value starts from 1.
+
+Syntax:
+select substr(column_name,index_value_from_where_to_start_slicing,number_of_charecters_you_want)
+
+example:
+perform slicing on the emp_name column starting at index 2 and total number of charecters is 3?
+ select emp_name,substr(emp_name,2,3) from employee;
+ 
+example2:
+select emp_name,substr(emp_name,2,3) from employee where emp_branch="cse";
+
+
+what happens if one of the row has only 2 charecters from index 2?
+it will give what ever it has, even if we want 3 charecters if it has only 2 then 2 are given, but no error will be raised in this case.
+
+
+what happens if one of the row has only 2 charecters and you want to slice from index 3?
+it will give whatever it has, if no charecters are there it will print blanks, but no error will be raised in this case.
+----------------------------------------------------------------------------------------------------------------------------
+LENGTH:
+In SQL, you can use the LENGTH function to determine the length of a string. The LENGTH function returns the number of characters in a given string.
+
+Here's the basic syntax:
+LENGTH(string_expression)
+
+Write an SQL query that fetches the unique values of DEPARTMENT from the Worker table and prints its length.
+Ans.
+
+
+Select distinct length(DEPARTMENT) from Worker;
+----------------------------------------------------------------------------------------------------------------------------
+
+replace:
+In SQL, the REPLACE function is used to replace occurrences of a specified substring with another substring in a given string. The basic syntax is as follows:
+REPLACE(original_string, old_substring, new_substring)
+
+example:
+select replace(first_name,'V','b') from worker;
+
+
+--------------------------------------------------------------------------------------------------------------------
+change case:
+
+Upper():
+convert all the words into upper case.
+
+example:
+select emp_name,upper(substr(emp_name,2,4)) from employee where emp_branch="cse";
+
+lower():
+convert all the words to lower case.
+
+example:
+select emp_name,lower(substr(emp_name,2,4)) from employee where emp_branch="cse";
+
+--------------------------------------------------------------------------------------------------------------------------
+Concat:
+In SQL, the CONCAT function is used to concatenate (combine) two or more strings into a single string. The basic syntax is as follows:
+CONCAT(string1, string2, ...)
+
+
+Write an SQL query to print the FIRST_NAME and LAST_NAME from the Worker table into a single column full_name. A space char should separate them.
+select concat(first_name,' ',last_name) as full_name from worker;
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+
+
+In SQL, you can use the LENGTH function to determine the length of a string. The LENGTH function returns the number of characters in a given string.
+
+CASE:
+Working with the CASE expression in MySQL allows you to perform conditional operations within your SQL queries. 
+You can use CASE in various ways, including simple conditional checks, conditional aggregations, and more complex operations. 
+
+Here's an overview of how to use CASE in MySQL:
+
+SELECT
+    column1,
+    column2,
+    CASE
+        WHEN condition1 THEN result1
+        WHEN condition2 THEN result2
+        ELSE default_result
+    END AS alias
+FROM your_table;
+
+
+example:
+ select emp_id,emp_name,
+    -> case emp_branch
+    -> when "cse" then "yes"
+    -> else "no"
+    -> end is_cse
+    -> from employee;
+	
+example2:
+
+display name of the employees whose salary is above and whose salary is below the avg salary.
+
+ select emp_name,
+    -> case
+    -> when emp_salary>(select avg(emp_salary) from employee)
+    -> then "above average"
+    -> else "below average"
+    -> end as salary_status
+    -> from employee
+    -> ;
+
+
+example3:
+
+select emp_name,emp_age
+    -> ,CASE
+    -> WHEN emp_age<25 then "young"
+    -> when emp_age>=25 and emp_age<=45 then "adult"
+    -> when emp_age>45 then "old"
+    -> end as age_group
+    -> from employee;
+	
+example5:
+find the sum of the spend in each quarter
+
+ select
+    -> sum(case when month(transactiondate) between 1 and 3 then spend else 0 end) as q1,
+    -> sum(case when month(transactiondate) between 4 and 6 then spend else 0 end) as q2,
+	-> sum(case when month(transactiondate) between 7 and 9 then spend else 0 end) as q3,
+	-> sum(case when month(transactiondate) between 9 and 12 then spend else 0 end) as q4
+    -> from transactions;
+	
+	
+--------------------------------------------------------------------------------------------------------------------------
+union:
+In SQL, the UNION operator is used to combine the result sets of two or more SELECT statements. 
+It is used to merge rows from different tables or queries into a single result set, removing duplicate rows in the process.
+
+The number of columns and their data types in the SELECT statements of each part must be the same.
+The columns are combined in the order they appear in the SELECT statements.
+By default, UNION removes duplicate rows from the result set. If you want to include duplicate rows, you can use UNION ALL.
+
+syntax:
+SELECT column1, column2, ...
+FROM table1
+WHERE condition
+
+UNION
+
+SELECT column1, column2, ...
+FROM table2
+WHERE condition;
+
+
+example:
+find the min age,max age,customerid from customer table
+
+select customerid,age from customers
+    -> where age in
+    -> (select max(age) from customers
+    -> union
+    -> select min(age) from customers);
+	
+	
+-------------------------------------------------------------------------------------------------------------------------
+union all:
+
+ select "weekend" as dayofweek, sum(t.spend) as totalspend from transactions t where dayofweek(t.transactiondatetime) in (1,7)
+    -> union all
+    -> select "weekend" as dayofweek, sum(t.spend) as totalspend from transactions t where dayofweek(t.transactiondatetime) not in (1,7)
+    -> ;
+	
+---------------------------------------------------------------------------------------------------------------------------
+
+window function:
+window function applies aggreagation,ranking and some analytical function on a window or some set of rows.
+Over clause is used to define that window.
+
+A window function is a SQL function that operates on a set of rows defined by an OVER clause. 
+The OVER clause divides the result set into partitions to which the window function is applied. It can also include an ORDER BY clause to define the order within each partition.
+
+Syntax:
+window_function(column) OVER (PARTITION BY partition_column ORDER BY order_column)
+
+example:
+find the max of salary and assign that value to all the rows by creating a new column?
+select e.*,max(emp_salary) over() from employee e;
+
+example:
+find the max of salary for each department and create a new column and assign max salary based on department
+select e.*,max(emp_salary) over(partition by emp_branch) from employee e;
+
+ROW_NUMBER():
+
+ROW_NUMBER() is a window function that assigns a unique number to each row within a partition of a result set.
+The numbers are assigned in ascending order based on the specified column or columns in the ORDER BY clause within the OVER clause.
+If there are ties (i.e., two or more rows have the same values for the ordering columns), ROW_NUMBER() will arbitrarily break the tie.
+
+Syntax:
+
+SELECT
+    column1,
+    column2,
+    ROW_NUMBER() OVER (PARTITION BY partition_column ORDER BY order_column) AS row_num
+FROM
+    your_table;
+
+example:
+create a new column and assign row value 
+
+select e.*, row_number() over() as rnk from employee e;
+
+example:
+create a new column and assign index based on department
+select e.*, row_number() over(partition by emp_branch) as inde from employee e;
+
+
+example:
+find the employee with highest salary in each department
+
+select * from
+    -> (
+    -> select e.*, row_number() over(partition by emp_branch order by emp_salary) as rnk from employee e) x
+    -> where x.rnk=1;
+	
+	
+RANK():
+
+RANK() is a window function that assigns a unique rank to each distinct row within a partition of a result set.
+The ranks are assigned in ascending order based on the specified column or columns in the ORDER BY clause within the OVER clause.
+If there are ties, rows with the same values for the ordering columns will receive the same rank, and the next rank will be skipped.
+
+SELECT
+    column1,
+    column2,
+    RANK() OVER (PARTITION BY partition_column ORDER BY order_column) AS rank_num
+FROM
+    your_table;
+
+
+example:
+join two tables and find the the highest salary for each designation:
+
+SELECT emp_id, designation, salary, rnk
+FROM (
+    SELECT
+        e.emp_id,
+        e.designation,
+        s.salary,
+        RANK() OVER (PARTITION BY e.emp_id ORDER BY s.salary DESC) AS rnk
+    FROM
+        emp e
+    JOIN
+        sal s ON e.emp_id = s.emp_id AND e.last_updated_date = s.last_updated_date
+) ranked_data
+WHERE rnk = 1;
+
+example:
+select e.emp_id,e.designation,s.salary,
+    -> rank() over(partition by e.emp_id order by s.salary desc) rnk
+    -> from emp e
+    -> join sal s
+    -> on e.emp_id=s.emp_id;
+	
+
+DENSE_RANK():
+
+DENSE_RANK() is a window function that also assigns a unique rank to each distinct row within a partition of a result set.
+Similar to RANK(), the ranks are assigned in ascending order based on the specified column or columns in the ORDER BY clause within the OVER clause.
+Unlike RANK(), there are no gaps in the ranking sequence when there are ties. Rows with the same values for the ordering columns will receive the same rank, 
+and the next rank will be the next consecutive integer without skipping.
+
+example:
+create a new column such that it has the max age for that specific ageband
+
+select c.*,
+    -> max(age) over(partition by ageband ) as rn from customers c;
+	
+example:
+Write a query to display the cumulative count of ageband ordered by age
+
+s%
+select c.*,
+    -> row_number() over(partition by ageband order by age) as rn from customers c;
+	
+	
+example1:
+find the first transaction made by each customer in the transaction table
+
+select * from
+    (select transactions.*,
+    row_number() over(partition by customerid order by transactiondate) as rn from transactions) as x
+    where x.rn=1;
+
+example:
+lowest salaries in each department:
+
+select * from
+    -> (
+    -> select e.*,
+    -> dense_rank() over(partition by emp_branch order by emp_salary) as rnk from employee e) x
+    -> where x.rnk=1;
+	
+	
+	
+example2:
+find the total spend made by the customers in there first two transactions(consider only 1 if they only have 1 transaction)
+
+select customerid,avg(spend) from
+    -> (select transactions.*,
+    -> row_number() over(partition by customerid order by transactiondate) as rn from transactions) as x
+    -> where x.rn<=2
+    -> group by customerid;
+	
+example 3:
+calculate the total spend made by each productid through first 10 transaction of each customer, if there exisits only 5 transactions for a product, 
+it should consider only those 5
+
+  select productid,sum(spend),count(spend) from
+    -> (select * ,
+    -> row_number() over(partition by productid order by transactiondate) as rn from transactions) as x
+    -> where x.rn<=10
+    -> group by productid;
+	
+example 4:
+find employees with highest salary in each department
+
+select emp_id,emp_branch,emp_salary
+    -> from
+    -> (select e.*,
+    -> row_number() over(partition by emp_branch order by emp_salary desc) as rnk from employee e) as x where x.rnk=1;
+	
+
+
+Difference between row_number and rank:
+
+
+Both ROW_NUMBER() and RANK() are window functions in SQL that can be used to assign a unique rank or number to rows within a partition. However, there are key differences between the two:
+
+Treatment of Ties:
+
+ROW_NUMBER() assigns a unique number to each row within the partition, and in the case of ties (equal values), it does not provide any distinction. 
+Subsequent rows with the same values get consecutive numbers.
+RANK() also assigns a unique rank to each row within the partition but handles ties differently. 
+If there are ties, the function assigns the same rank to those tied rows and leaves gaps before the next distinct rank.
+
+Gaps in Ranking:
+
+ROW_NUMBER() does not leave any gaps in the ranking. Each row gets a unique number within the partition, regardless of ties.
+RANK() may leave gaps in the ranking when there are ties. 
+If multiple rows have the same values, they will receive the same rank, and the next distinct row will have a rank that skips the number of tied rows.
+
+
+Lag:
+the term "LAG" refers to a window function that allows you to access the value of a specific column from the previous row within the result set. 
+The LAG function can be useful for comparing the current row's value with the value from the previous row.
+
+
+Syntax:
+LAG(column_name, offset, default_value) OVER (PARTITION BY partition_column ORDER BY order_column)
+
+column_name: The column for which you want to retrieve the previous value.
+offset: The number of rows before the current row from which to retrieve the value (default is 1).
+default_value: Optional parameter specifying the default value if the offset goes beyond the first row.
+
+example:
+create a new column with lag=1 for salary:
+ select e.*,lag(emp_salary) over() as prev from employee e;
+ 
+example:
+ create a new column with lag=1 for salary:
+ select e.*,lag(emp_salary,1) over() as prev from employee e;
+ 
+example:
+by default you get null if there is no previous value, but you can assign some value in that case:
+select e.*,lag(emp_salary,1,'no previous value') over(partition by emp_branch) as prev from employee e;
+
+
+Lead:
+The LEAD function is essentially the opposite of the LAG function, which retrieves values from the previous row. 
+The LEAD function is useful for comparing the current row's value with the value from the next row.
+
+syntax:
+LEAD(column_name, offset, default_value) OVER (PARTITION BY partition_column ORDER BY order_column)
+
+example:
+select e.*,lead(emp_salary,1,'no next value') over(partition by emp_branch) as prev from employee e;
+
+
+example:
+find the employees whose curr month salary is less than prev month?
+select salary,next_salary from
+    -> (select s.*,lead(salary) over(partition by emp_id order by last_updated_date) as next_salary from sal s) d
+    -> where salary>next_salary;
+--------------------------------------------------------------------------------------------------------------
+
+CTE:
+
+A Common Table Expression (CTE) is a temporary result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement in SQL. 
+CTEs provide a way to break down complex queries into more readable and manageable parts by allowing you to define a named, temporary result set within your SQL query. 
+CTEs are often used to simplify complex joins or subqueries and make SQL code more modular and understandable.
+
+
+WITH cte_name (column1, column2, ...) AS (
+    -- CTE query definition here
+)
+-- Query that uses the CTE
+SELECT *
+FROM cte_name;
+
+
+example:
+
+WITH CustomerTotalSpend AS (
+    SELECT
+        c.CustomerID,
+        c.CustomerName, -- Replace with the actual column name for customer names
+        SUM(t.Spend) AS TotalSpend
+    FROM
+        customers c
+    JOIN
+        transactions t ON c.CustomerID = t.CustomerID
+    GROUP BY
+        c.CustomerID, c.CustomerName -- Replace with the actual column name for customer names
+)
+
+SELECT
+    CustomerID,
+    CustomerName,
+    TotalSpend
+FROM
+    CustomerTotalSpend
+ORDER BY
+    TotalSpend DESC
+LIMIT 5;
+
+
+Write a query to fetch the top 10 countries by total invoice amount for each year. Table: invoice_data columns: customer_id, country, invoice_date, invoice_amount
+
+select country,sum(invoice_amount) from invoice_data i1 year(invoice_date)=(select year(invoice_date) from invoice_data i2 where i1.country=i1.country);
+
+-----------------------------------------------------------------------------------------------------------------------------
+Find the employees who have the same salary as Eva.
+
+List the employees who have the highest salary in their respective departments.
+
+Retrieve the departments where the average employee salary is above the company-wide average salary.
+
+Identify employees who have received the lowest salary in each department.
+
+List employees who joined after the employee with the highest salary.
+
+Find the departments where all employees have salaries above a certain threshold (e.g., $60,000).
+
+Retrieve employees who have never received a salary increase.
+
+List employees who have received a higher salary than their manager.
+
+Identify employees whose salary is within 10% of the maximum salary in their department.
+
+Retrieve the top N employees with the highest overall earnings (sum of all salaries).
+
+Find employees who have the same salary as the employee with the second-highest salary.
+
+Retrieve employees who have received a salary increase more than once.
+
+List employees who have changed departments.
+
+Identify employees who have joined the company within a month of the employee with the earliest hire date.
+
+Retrieve employees who have the same salary as the employee with the highest overall earnings.
+
+Find employees who have not received a salary payment in the last three months.
+
+List employees who have a higher salary than the average salary of employees in the IT department.
+
+Retrieve employees who have received the same salary in consecutive months.
+
+Find the department with the most employees.
+
+Identify employees who have received a salary increase every year since joining the company.
+
+Retrieve employees who have the same hire date as the employee with the longest tenure.
+
+List employees who have received the highest salary in each quarter.
+
+Find employees who have received a salary decrease.
+
+Retrieve employees who have the same salary as the employee with the highest salary in the Finance department.
+
+Identify employees who have received the lowest salary in the company.
+
+
